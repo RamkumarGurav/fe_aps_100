@@ -6,28 +6,139 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.bg-primary-blue1 {
+  background-color: #337ab7;
+}
+.bg-primary-blue2 {
+  background-color: #1a2742;
+}
+.bg-primary-blue3 {
+  background-color: #15222e;
+}
+.bg-primary-blue4 {
+  background-color: #140a46;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.text-primary-blue5 {
+  color: #007bff;
+}
+.bg-secondary-red1 {
+  background-color: #e6272d;
+}
+.text-secondary-red1 {
+  color: #e6272d;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.text-red2 {
+  color: #ef4438;
+}
+
+.text-primary-muted1 {
+  color: #b2c1d0;
+}
+
+.bg-primary-yellow1 {
+  background-color: #f8f4e1;
+}
+
+.bg-yellow-muted {
+  background-color: #fdfbf0;
+}
+
+/* //{--------------SHADOWS-------------- */
+.shadow-t {
+  box-shadow: 0 -5px 5px -5px #333;
+}
+
+.shadow-b {
+  box-shadow: -5px 0 8px -5px #333;
+}
+
+.shadow-r {
+  box-shadow: 0 5px 5px -5px #333;
+}
+
+.shadow-l {
+  box-shadow: 5px 0 5px -5px #333;
+}
+
+.shadow-all {
+  box-shadow: 0 0 5px #333;
+}
+/* //--------------------------------------------------} */
+
+/* //---Navbar */
+.navLink {
+  @apply text-sm text-gray-700 hover:text-[#e6272d] w-full h-full  font-sans font-semibold 
+  whitespace-nowrap px-2 lg:px-3 xl:px-6   uppercase;
+}
+
+.navlinkDownIcon {
+  @apply ml-[4px] mb-1;
+}
+
+.navLinkInDrop {
+  @apply px-4 py-2 pb-4 hover:text-[#e6272d]  border-b-[1px]  border-solid  block whitespace-nowrap;
+}
+.navLinkMobile {
+  @apply text-sm  pr-2 text-gray-700 hover:text-inherit  font-sans font-semibold  uppercase;
+}
+
+.mobileDropDownLink {
+  @apply px-4 py-2 pb-[3px] hover:text-[#e6272d]  block whitespace-nowrap  text-gray-900;
+}
+
+.dropDownLinks {
+  visibility: hidden;
+}
+
+.dropDownContainer:hover .dropDownLinks {
+  visibility: visible;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.937) 0px 5px 12px;
+
+  z-index: 1;
+}
+
+/* //---Footer */
+
+.footer-social-link {
+  @apply rounded-full  border-[1px] border-gray-500 p-2;
+}
+
+.footer-social-icon {
+  @apply text-gray-500 hover:text-gray-600;
+}
+
+.footPhoneNo {
+  z-index: 999;
+}
+
+/* //------ FOOTER */
+
+.quickLinkUl {
+  list-style-type: square;
+  list-style-image: url(".././public/list-icon.png");
+}
+
+.quickLinkUl li {
+  width: 100%;
+  text-align: center;
+  list-style-position: inside;
+}
+
+.footerQuickLink {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .quickLinkUl li {
+    text-align: start;
+    list-style-position: outside;
   }
 }
