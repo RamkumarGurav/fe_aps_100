@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";

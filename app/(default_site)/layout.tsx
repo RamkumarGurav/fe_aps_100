@@ -109,10 +109,8 @@ let navLinks = {
 };
 
 async function fetchData() {
-  const res = await fetch(`${beBaseUrl}api/years.php`, {
-    cache: "no-cache",
-  });
-
+  //---ADD "?" ADD THE end to get rid of the "< token " error
+  const res = await fetch(`${beBaseUrl}api/years.php?`);
   if (!res.ok) return undefined;
   return res.json();
 }
@@ -122,14 +120,20 @@ export default async function WebsiteLayout({
   children: React.ReactNode;
 }) {
   const data = await fetchData();
-  let dropDownLinks = data.years.map((item: any) => {
+  let dropDownLinks = data?.years.map((item: any) => {
     let link = feBaseUrl + "gallery/" + item.id;
     return {
       name: item.fiscal_year,
       link: link,
     };
   });
-  navLinks.gallery.dropDown = dropDownLinks;
+  navLinks.gallery.dropDown = dropDownLinks
+    ? dropDownLinks
+    : [
+        { name: "2022-23", link: "/" },
+        { name: "2022-23", link: "/" },
+      ];
+
   return (
     <div>
       <Navbar contactUs={contactUs} navLinks={navLinks} />

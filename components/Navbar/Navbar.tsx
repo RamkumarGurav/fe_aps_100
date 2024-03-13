@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
-import LogoBlack from "@/public/logo.jpg";
-import LogoWhite from "@/public/logo.jpg";
-import { useEffect, useState } from "react";
+import Logo from "@/public/logo_rb2.png";
+import { useEffect, useRef, useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { GrFormClose } from "react-icons/gr";
 import { FaBars } from "react-icons/fa";
@@ -12,7 +11,6 @@ import Link from "next/link";
 import HeaderTop from "./HeaderTop";
 import DropDown from "./DropDown";
 import { Lato } from "next/font/google";
-import { DiVim } from "react-icons/di";
 
 const font = Lato({ weight: "400", subsets: ["latin"] });
 
@@ -24,6 +22,8 @@ export default function Navbar({
   contactUs: { [key: string]: any };
 }) {
   const [open, setOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const mainNavBarRef = useRef<HTMLDivElement>(null);
   const [navLinkName, setNavLinkName] = useState("");
   const handleOpen = () => {
     setOpen(!open);
@@ -32,7 +32,6 @@ export default function Navbar({
   const handleNavLinkName = (name: string) => {
     setNavLinkName((prevName) => (prevName === name ? "" : name));
   };
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     if (!open) {
@@ -41,50 +40,56 @@ export default function Navbar({
   }, [open]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const isScrolled = scrollTop > 41; //when scroll reaches above 50px lengthh
+    if (!mainNavBarRef.current) {
+      return;
+    }
 
-      setIsScrolled(isScrolled);
-    };
+    const observer = new IntersectionObserver(
+      ([event]) => setIsSticky(event.intersectionRatio < 1),
+      { threshold: [1], rootMargin: "-1px 0px 0px 0px" }
+    );
+    observer.observe(mainNavBarRef.current);
 
-    // Attach the event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Remove the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isScrolled]);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
       <HeaderTop contactUs={contactUs} />
-      {/* ${
-          isScrolled ? "fixed top-0 left-0 right-0" : "relative"
-        }  */}
+
       <div
-        className={`min-w-[100%]  sticky top-0 left-0 right-0        flex items-center 
-         text-gray-900 font-serif  bg-yellow-muted h-full  ${font.className}  shadow-b
-          
+        className={`min-w-[100%]  sticky top-0 left-0 right-0 ${
+          isSticky ? "h-[70.77px] lg:h-[84px]" : "h-[74.88px] lg:h-[100px]"
+        }   
+         
+        flex items-center text-gray-900 font-serif w-full  h-full  ${
+          font.className
+        }  shadow-b
          z-[998]
         `}
+        ref={mainNavBarRef}
       >
-        <div className="wrapperToMakeZindexWork w-full h-full  lg z-[997] px-3 pb-1 lg:px-1 bg-yellow-muted ">
-          <div className=" w-full h-full  flex items-center justify-between    ">
+        <div
+          className={`wrapperToMakeZindexWork w-full h-full  bg-yellow-muted  px-3 pb-1  xl:px-[91px]
+         z-[997]`}
+        >
+          <div className=" h-full  flex items-center  justify-between    ">
             <Link href="/" className="p-1">
               <Image
-                src={isScrolled ? LogoBlack : LogoWhite}
+                src={Logo}
                 alt="logo"
                 width={200}
                 height={200}
-                className="w-auto h-[46px] sm:h-[61px] object-cover"
+                className={`w-auto object-cover   ${
+                  isSticky
+                    ? " h-[56px] sm:h-[62px]"
+                    : " h-[46px] sm:h-[81.14px]"
+                } transition-all`}
                 placeholder="blur"
               />
             </Link>
-            {/* <div className="bg-red-500">xx</div> */}
-            <NavLinks isScrolled={isScrolled} navLinks={navLinks} />
-            <div className="h-full w-[40px]  flex items-center justify-center  visible lg:hidden">
+            <NavLinks navLinks={navLinks} />
+            <div className=" w-[50px]  flex items-center justify-center   lg:hidden">
               {!open ? (
                 <FaBars
                   size={30}
@@ -110,8 +115,6 @@ export default function Navbar({
           navLinks={navLinks}
         />
       </div>
-
-      {/* {isScrolled && <div className={`h-[51px] sm:h-[80px]`}></div>} */}
     </>
   );
 }

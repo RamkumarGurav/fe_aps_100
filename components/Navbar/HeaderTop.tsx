@@ -10,7 +10,7 @@ export default function HeaderTop({ contactUs }: { contactUs: ContactUs }) {
   return (
     <div
       id="header-top"
-      className={`bg-[#140A46] text-white  h-[41px] ${lato.className} relative z-[999]`}
+      className={`bg-[#140A46] text-white h-[31.5px] md:h-[41px] ${lato.className} relative z-[999]`}
     >
       <div className="px-[14px] h-full flex justify-between ">
         <div className="flex ">
@@ -29,7 +29,7 @@ export default function HeaderTop({ contactUs }: { contactUs: ContactUs }) {
         </div>
         <Link
           href="https://www.appolopublicschool.com/contact-us.html"
-          className="h-full px-3 flex items-center justify-center bg-red-500 text-white font-semibold uppercase hover:bg-primary-blue"
+          className={`h-full px-3 text-[13px] leading-loose flex items-center justify-center bg-red-500 text-white font-semibold uppercase hover:bg-primary-blue`}
         >
           contact us
         </Link>

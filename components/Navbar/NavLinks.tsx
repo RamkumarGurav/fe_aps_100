@@ -5,16 +5,14 @@ export default function NavLinks({
   isScrolled,
   navLinks,
 }: {
-  isScrolled: boolean;
+  isScrolled?: boolean;
   navLinks: { [key: string]: any };
 }) {
   return (
-    <div className="hidden lg:flex  items-stretch justify-evenly gap-0">
+    <div className="hidden h-full lg:flex  items-stretch justify-evenly gap-0">
       <Link
         href={navLinks.home.link}
-        className={`navLink h-full  w-full flex justify-center items-center text-start  ${
-          isScrolled && "hover:text-black"
-        }`}
+        className={`navLink  flex justify-center items-center   `}
       >
         {navLinks.home.name}
       </Link>
@@ -97,10 +95,7 @@ export default function NavLinks({
       </div>
       <Link
         href={navLinks.facilities.link}
-        className={`navLink w-full flex justify-center items-center text-start  ${
-          isScrolled && "hover:text-black"
-        }`}
-        title="Home"
+        className={`navLink flex justify-center items-center`}
       >
         {navLinks.facilities.name}
       </Link>
@@ -132,10 +127,7 @@ export default function NavLinks({
       </div>
       <Link
         href={navLinks.newsandevents.link}
-        className={`navLink w-full flex justify-center items-center text-start  ${
-          isScrolled && "hover:text-black"
-        }`}
-        title="Home"
+        className={`navLink flex justify-center items-center `}
       >
         {navLinks.newsandevents.name}
       </Link>
