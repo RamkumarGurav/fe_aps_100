@@ -1,12 +1,12 @@
-import { ContactUs } from "@/app/(default_site)/layout";
 import Link from "next/link";
 import { FaPhone } from "react-icons/fa6";
 import { FiMail } from "react-icons/fi";
 import { Lato } from "next/font/google";
+import { ContactUsInt } from "@/utils/displayData";
 
 const lato = Lato({ weight: "400", subsets: ["latin"] });
 
-export default function HeaderTop({ contactUs }: { contactUs: ContactUs }) {
+export default function HeaderTop({ contactUs }: { contactUs: ContactUsInt }) {
   return (
     <div
       id="header-top"

@@ -1,24 +1,19 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getImagesWithSrcAndBlurDataUrlArr } from "@/utils/base64Converters";
-import Image from "next/image";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
-import GalleryCard from "./GalleryCard";
+import GalleryCard from "../../../../components/Gallery/GalleryCard";
 import { Mulish } from "next/font/google";
 
 const font = Mulish({ weight: "400", subsets: ["latin"] });
-
-//
 
 const beBaseUrl = "http://localhost/xampp/MARS/appolopublicschool.com/";
 const feBaseUrl = "http://localhost:3000/";
 
 async function fetchData(id: string | number) {
-  const res = await fetch(`${beBaseUrl}api/albums.php?fyID=${id}`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(`${beBaseUrl}api/albums.php?fyID=${id}`);
 
-  if (!res.ok) return undefined;
+  if (!res.ok) return null;
   return res.json();
 }
 

@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getImagesWithSrcAndBlurDataUrlArr } from "@/utils/base64Converters";
 import Image from "next/image";
-import GalleryModalContainer from "./GalleryModalContainer";
-import VideoCard from "./VideoCard";
+import GalleryModalContainer from "../../../../components/GalleryDetails/GalleryModalContainer";
+import VideoCard from "../../../../components/GalleryDetails/VideoCard";
 
 import { Mulish } from "next/font/google";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
@@ -13,11 +13,9 @@ const font = Mulish({ weight: "400", subsets: ["latin"] });
 const beBaseUrl = "http://localhost/xampp/MARS/appolopublicschool.com/";
 
 async function fetchData(id: string | number) {
-  const res = await fetch(`${beBaseUrl}api/album_images.php?albumID=${id}`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(`${beBaseUrl}api/album_images.php?albumID=${id}`);
 
-  if (!res.ok) return undefined;
+  if (!res.ok) return null;
   return res.json();
 }
 

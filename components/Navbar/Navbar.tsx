@@ -2,10 +2,8 @@
 import Image from "next/image";
 import Logo from "@/public/logo_rb2.png";
 import { useEffect, useRef, useState } from "react";
-import { IoMenu, IoClose } from "react-icons/io5";
 import { GrFormClose } from "react-icons/gr";
 import { FaBars } from "react-icons/fa";
-import SideNav from "./DropDown";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
 import HeaderTop from "./HeaderTop";
@@ -88,7 +86,7 @@ export default function Navbar({
                 placeholder="blur"
               />
             </Link>
-            <NavLinks navLinks={navLinks} />
+            <NavLinks navLinks={navLinks} isSticky={isSticky} />
             <div className=" w-[50px]  flex items-center justify-center   lg:hidden">
               {!open ? (
                 <FaBars
@@ -111,7 +109,6 @@ export default function Navbar({
           open={open}
           navLinkName={navLinkName}
           handleNavLinkName={handleNavLinkName}
-          handleOpen={handleOpen}
           navLinks={navLinks}
         />
       </div>

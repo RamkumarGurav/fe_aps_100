@@ -7,13 +7,13 @@ export default function GalleryCarousel({
   slides,
   autoPlay = false,
   interval = 3000,
-  currentIndex
+  currentIndex,
 }: {
   children: React.ReactNode;
   slides: string[];
   autoPlay?: boolean;
   interval?: number;
-  currentIndex:number;
+  currentIndex: number;
 }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(currentIndex);
 
@@ -61,10 +61,7 @@ export default function GalleryCarousel({
           className="px-2 flex justify-center items-center cursor-pointer"
           onClick={handlePrev}
         >
-          <button
-            className="bg-white/50 hover:bg-white text-gray-900 p-1 rounded-full shadow"
-            // onClick={handlePrev}
-          >
+          <button className="bg-white/50 hover:bg-white text-gray-900 p-1 rounded-full shadow">
             <GrFormPrevious size={24} />
           </button>
         </div>
@@ -79,8 +76,18 @@ export default function GalleryCarousel({
           </button>
         </div>
       </div>
-
-      <div
+      {/* //{--------------Images Numbers-------------- */}
+      <div className="absolute bottom-2  left-0 right-0 ">
+        <span
+          className="text-gray-100 text-xs inline-block w-[50px] text-right font-sans font-semibold py-1 pr-3  rounded-r-2xl bg-red-900
+         bg-gradient-to-r from-gray-900 via-gary-300 to-gray-900 "
+        >
+          {currentSlideIndex + 1}/{slides.length}
+        </span>
+      </div>
+      {/* //--------------------------------------------------} */}
+      {/* //{--------------DOTS-------------- */}
+      {/* <div
         id="dots-container"
         className=" absolute bottom-4 right-0 left-0 flex items-center justify-center gap-2"
       >
@@ -101,7 +108,8 @@ export default function GalleryCarousel({
             ></div>
           </div>
         ))}
-      </div>
+      </div> */}
+      {/* //--------------------------------------------------} */}
     </div>
   );
 }

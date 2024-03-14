@@ -5,13 +5,11 @@ import { FaAngleRight, FaAngleDown } from "react-icons/fa6";
 // const font = Lato({ weight: "400", subsets: ["latin"] });
 export default function DropDown({
   open,
-  handleOpen,
   navLinkName,
   handleNavLinkName,
   navLinks,
 }: {
   open: boolean;
-  handleOpen: () => void;
   navLinkName: string;
   handleNavLinkName: (name: string) => void;
   navLinks: { [key: string]: any };

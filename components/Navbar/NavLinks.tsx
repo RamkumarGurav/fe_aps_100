@@ -2,14 +2,18 @@ import Link from "next/link";
 import { FaCaretDown } from "react-icons/fa";
 
 export default function NavLinks({
-  isScrolled,
   navLinks,
+  isSticky,
 }: {
-  isScrolled?: boolean;
   navLinks: { [key: string]: any };
+  isSticky?: boolean;
 }) {
   return (
-    <div className="hidden h-full lg:flex  items-stretch justify-evenly gap-0">
+    <div
+      className={`hidden h-full lg:flex  items-stretch justify-evenly transition-all ${
+        isSticky ? "gap-2" : "gap-0"
+      }`}
+    >
       <Link
         href={navLinks.home.link}
         className={`navLink  flex justify-center items-center   `}
