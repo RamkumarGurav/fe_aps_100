@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { FaCaretDown } from "react-icons/fa";
+import { Lato } from "next/font/google";
+const font = Lato({ weight: "400", subsets: ["latin"] });
 
 export default function NavLinks({
   navLinks,
@@ -10,7 +12,9 @@ export default function NavLinks({
 }) {
   return (
     <div
-      className={`hidden h-full lg:flex  items-stretch justify-evenly transition-all ${
+      className={`hidden ${
+        font.className
+      } h-full lg:flex  items-stretch justify-evenly transition-all ${
         isSticky ? "gap-2" : "gap-0"
       }`}
     >

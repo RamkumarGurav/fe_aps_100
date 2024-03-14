@@ -90,3 +90,50 @@ export let navLinks = {
     link: "https://www.appolopublicschool.com/news-events.html",
   },
 };
+
+//{--------------footer--------------
+
+export interface FooterContactUsInt {
+  [key: string]: any;
+}
+
+export let footerQuickLinks = [
+  { text: "Home", link: "https://www.appolopublicschool.com" },
+  {
+    text: "About Us",
+    link: "https://www.appolopublicschool.com/about-us.html",
+  },
+  {
+    text: "Messages",
+    link: "https://www.appolopublicschool.com/chairmans-message.html",
+  },
+  {
+    text: "Academics",
+    link: "https://www.appolopublicschool.com/curriculum.html",
+  },
+  {
+    text: "News & Events",
+    link: "https://www.appolopublicschool.com/news-events.html",
+  },
+  {
+    text: "Facilities",
+    link: "https://www.appolopublicschool.com/facilities.html",
+  },
+  {
+    text: "Gallery",
+    link: "https://www.appolopublicschool.com/gallery-2022-23.html",
+  },
+  {
+    text: "Contact Us",
+    link: "https://www.appolopublicschool.com/contact-us.html",
+  },
+];
+
+export let footerContactUs: FooterContactUsInt = {
+  address:
+    "# 320, 5th Cross, 5th Block, Banashankari, 3rd Stage, 3rd Phase, Bengaluru-560085",
+  phoneNumbers: ["8026698908/09", "8792539589"],
+  email: "appolopublicsch@gmail.com",
+};
+
+//--------------------------------------------------}

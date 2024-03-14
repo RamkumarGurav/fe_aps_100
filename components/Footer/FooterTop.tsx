@@ -5,32 +5,15 @@ import { MdEmail } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
-
-interface FooterContactUs {
-  [key: string]: any;
-}
-
-let footerQuickLinks = [
-  { text: "Home", link: "/" },
-  { text: "About Us", link: "/" },
-  { text: "Messages", link: "/" },
-  { text: "Academics", link: "/" },
-  { text: "News & Events", link: "/" },
-  { text: "Facilities", link: "/" },
-  { text: "Gallery", link: "/" },
-  { text: "Contact Us", link: "/" },
-];
-
-let footerContactUs: FooterContactUs = {
-  address:
-    "# 320, 5th Cross, 5th Block, Banashankari, 3rd Stage, 3rd Phase, Bengaluru-560085",
-  phoneNumbers: ["8026698908/09", "8792539589"],
-  email: "appolopublicsch@gmail.com",
-};
+import { footerContactUs, footerQuickLinks } from "@/utils/displayData";
+import { Roboto } from "next/font/google";
+const font = Roboto({ weight: "400", subsets: ["latin"] });
 
 const FooterTop = () => {
   return (
-    <footer className=" bg-gray-900 text-white py-10">
+    <footer
+      className={`bg-gray-900 text-white py-10 ${font.className} font-sans`}
+    >
       <div className="container px-4 mx-auto ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-10">
           <AnimatePresence>
@@ -106,8 +89,7 @@ const FooterTop = () => {
                   </div>
 
                   <div
-                    title="Website Design"
-                    className="footerQuickLink text-gray-400  "
+                    className={`footerQuickLink text-gray-400   ${font.className} font-sans`}
                   >
                     {footerContactUs.address}
                   </div>
