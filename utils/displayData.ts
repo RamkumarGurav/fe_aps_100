@@ -137,3 +137,33 @@ export let footerContactUs: FooterContactUsInt = {
 };
 
 //--------------------------------------------------}
+
+//{--------------HOME PAGE--------------
+export const msgSlides = [
+  {
+    msg: "Appolo Public School is a school of more opportunities and develops the view of students and encourage them to develop good mannerism , good characters and best life skills. Our school Principal and teachers are very supportive, caring and passionate in moulding students. Our school motto stands for character,Conduct and culture. I love my school.",
+    name: "Sumedha",
+    type: "Student",
+  },
+  {
+    msg: "I know the school from last 2002. My son studied here from pre-nursery to class 10 and presently my daughter is in class 10. The school academic results are very good and it's growing in positive direction. They are bringing out well cultured students. I am very thankful to management and team for maintaining high discipline and providing safety for girl students.",
+    name: "B.S.Ravi Shankar",
+    type: "Parent of Anjana",
+  },
+  {
+    msg: "It gives me immense pleasure to talk about the school in which my daughter is studying. During this corona pandemic time with tight lockdown,  i don't think learning has stopped for my daughter and other children studying in the school. I see lot of commitment in all the teachers in taking classes for the children, keeping them engaged throughout the classes, asking questions etc. I have not seen any class being missed by any teacher and this has created lot of discipline in the children and interest to learn better and better. Thank you very much for all your sincere efforts to see that learning continues at Apollo no matter what the situation is.",
+    name: "Renuka Prasad",
+    type: "Father of Gowri TR",
+  },
+  {
+    msg: "As a parent,I feel satisfied of my son being admitted to one the best school . The reasons are like *We can approach teachers to discuss about our children progress both in academics as well as in other school activities. *Teacher's identifies the students talent and encourage them to take part in co=curricular activities thus helping them to build team spirit, sportsmanship and many more good qualities. *The non-teaching staffs too creates hospitable environment in school. The most important thing is Apollo just does not create doctors or engineers but gives good citizens to our nation.",
+    name: "Mahalingappa",
+    type: "Father of Gagan",
+  },
+  {
+    msg: "The school is trustworthy and has the best teachers who treats the students very well. It aims in developing a good character in students along with the students understand the subject properly. It also encourages other talents in students and has strict rules and regulations to follow. Encourages the students to participate in other activities and builds confidence. Overall the aschool and the teachers are the best.",
+    name: "Gagan",
+    type: "Student of Apollo",
+  },
+];
+//--------------------------------------------------}

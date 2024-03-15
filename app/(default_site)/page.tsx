@@ -4,15 +4,11 @@ import Image from "next/image";
 import AbouApsImg from "../../public/abt-img.jpg";
 import rajab from "../../public/rajab.jpg";
 import sreelakshmi from "../../public/sreelakshmi.jpg";
-import bannerImg1 from "../../public/banner-img-1.jpg";
-import bannerImg2 from "../../public/banner-img-2.jpg";
-import bannerImg3 from "../../public/banner-img-3.jpg";
-import bannerImg4 from "../../public/banner-img-4.jpg";
-import HeroCarousel from "@/components/Carousel/HeroCarousel";
+
 import HomeHeroCarousel from "@/components/Carousel/HomeHeroCarousel";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
-import SwiperCarousel from "@/components/Carousel/Swiper/SwiperCarousel";
-import EmblaCarousel from "@/components/Carousel/HeroCarousel";
+import ToppersCarousel from "@/components/Carousel/ToppersCarousel";
+import MsgsCarousel from "@/components/Carousel/MsgsCarousel";
 
 export default function Home() {
   const hereSlides = [1, 2, 3, 4];
@@ -24,48 +20,10 @@ export default function Home() {
         message='"Admissions Open 2024-25"'
         classes="text-secondary-red1 bg-[#F8F4E1]"
       />
-      <section className="py-10">
-        <SwiperCarousel />
+      <section className="z-0">
+        <HomeHeroCarousel />
       </section>
-      {/* <section className="py-10">
-        <EmblaCarousel />
-      </section> */}
 
-      {/* <section id="homeCarousel">
-        <HomeHeroCarousel slides={hereSlides} autoPlay={true}>
-          {" "}
-          <Image
-            src={bannerImg1}
-            alt="banner"
-            className="w-full h-auto object-cover "
-            placeholder="blur"
-          />{" "}
-          <Image
-            src={bannerImg2}
-            alt="banner"
-            className="w-full h-auto object-cover "
-            placeholder="blur"
-          />{" "}
-          <Image
-            src={bannerImg3}
-            alt="banner"
-            className="w-full h-auto object-cover "
-            placeholder="blur"
-          />{" "}
-          <Image
-            src={bannerImg4}
-            alt="banner"
-            className="w-full h-auto object-cover "
-            placeholder="blur"
-          />{" "}
-          <Image
-            src={AbouApsImg}
-            alt="pagination"
-            className="w-full h-auto object-cover "
-            placeholder="blur"
-          />
-        </HomeHeroCarousel>
-      </section> */}
       <section
         id="aboutAps"
         className="pt-[20px] pb-10 lg:pt-[40px] px-[5px] lg:px-[80px] "
@@ -235,7 +193,7 @@ export default function Home() {
       </section>
       <section
         id="toppers"
-        className="pt-[20px] pb-10 lg:pt-[40px] px-[5px] lg:px-[80px] bg-[#F9F9F9] "
+        className="pt-[20px] pb-10 lg:pt-[40px] px-[5px] xl:px-[50px] bg-[#F9F9F9] z-0"
       >
         <div className="mx-auto flex flex-col justify-center items-center my-4">
           <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
@@ -243,11 +201,13 @@ export default function Home() {
           </div>
           <div className="w-[100px] border-b-[4px] border-red-500"></div>
         </div>
-        <div className="toppersContainer min-h-[400px]"></div>
+        <div className="toppersContainer min-h-[400px] py-2 px-4">
+          <ToppersCarousel />
+        </div>
       </section>
       <section
         id="studentsMsg"
-        className=" object-cover"
+        className=" object-cover z-0 "
         style={{ backgroundImage: "url(../../trust_bg.jpg)" }}
       >
         <div className="pt-[20px] pb-10 lg:pt-[40px] px-[5px] lg:px-[80px] bg-[#25304ae7] w-full h-full">
@@ -259,7 +219,9 @@ export default function Home() {
             <div className="w-[100px] border-b-[4px] border-red-500"></div>
           </div>
 
-          <div className="studentsMsgContainer min-h-[400px]"></div>
+          <div className="studentsMsgContainer min-h-[400px] py-2 px-4">
+            <MsgsCarousel />
+          </div>
         </div>
       </section>
     </div>

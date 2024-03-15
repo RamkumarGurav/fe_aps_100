@@ -1,106 +1,103 @@
 "use client";
-import { MdNavigateNext } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
-import { useCallback, useEffect, useState } from "react";
-export default function GalleryCarousel({
-  children,
-  slides,
-  autoPlay = false,
-  interval = 3000,
-}: {
-  children: React.ReactNode;
-  slides: any[];
-  autoPlay?: boolean;
-  interval?: number;
-}) {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+// Import Swiper React components
+import banner1 from "@/public/banner-img-1.jpg";
+import banner2 from "@/public/banner-img-2.jpg";
+import banner3 from "@/public/banner-img-3.jpg";
+import banner4 from "@/public/banner-img-4.jpg";
+import Image from "next/image";
+import { useCallback, useRef } from "react";
+import { IoCaretForward, IoCaretBack } from "react-icons/io5";
 
-  const handleNext = useCallback(
-    () =>
-      setCurrentSlideIndex(
-        currentSlideIndex === slides.length - 1 ? 0 : currentSlideIndex + 1
-      ),
-    [currentSlideIndex, slides.length]
-  );
+// SWIPER IMPORTS
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+export default function HomeHeroCarousel() {
+  const swiperRef = useRef<SwiperType>();
 
-  const handlePrev = () =>
-    setCurrentSlideIndex(
-      currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1
-    );
-
-  useEffect(() => {
-    if (!autoPlay) return;
-
-    const intervalId = setInterval(() => handleNext(), interval);
-
-    return () => clearInterval(intervalId);
-  }, [autoPlay, interval, handleNext]);
-
-  // console.log("currentSlideIndex", currentSlideIndex);
   return (
-    <div
-      id="carousel-container"
-      className=" relative  overflow-hidden border border-solid border-gray-300 shadow-2xl rounded-lg"
-    >
-      <div
-        id="slides-container"
-        className={`  bg-white  flex  transition-transform duration-700 ease-in-out 
-    `}
-        // whenever you want to add transform effect do it using style attribute instead of tailwindcss it will work correctly
-        style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
-      >
-        {children}
-      </div>
-      <div
-        id="carousel-nav-container"
-        className={`absolute inset-0  flex justify-between  `}
-      >
-        <div
-          className="px-2 flex justify-center items-center cursor-pointer"
-          onClick={handlePrev}
-        >
-          <button className="bg-white/50 hover:bg-white text-gray-900 p-1 rounded-full shadow">
-            <GrFormPrevious size={24} />
-          </button>
-        </div>
+    <div className="customSwiperContainer relative z-[0]">
+      <style global jsx>{`
+        span.swiper-pagination-bullet {
+          background-color: rgb(0, 0, 0) !important;
+          opacity: 0.6 !important;
+        }
 
-        <div
-          className="px-2  flex justify-center items-center cursor-pointer"
-          onClick={handleNext}
-        >
-          {" "}
-          <button className="bg-white/50 hover:bg-white text-gray-900 p-1 rounded-full shadow">
-            <MdNavigateNext size={24} />
-          </button>
-        </div>
-      </div>
-
-      {/* //{--------------DOTS-------------- */}
-      <div
-        id="dots-container"
-        className=" absolute bottom-4 right-0 left-0 flex items-center justify-center gap-2"
+        span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+          background-color: white !important;
+          display: inline-block;
+          width: 10px !important;
+          height: 10px !important;
+          border: 2px white solid !important;
+        }
+      `}</style>
+      <Swiper
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
+        speed={800}
+        loop={true}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Navigation, Pagination, Autoplay]}
+        className="mySwiper "
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
       >
-        {slides.map((_, i) => (
-          // here another dive to cover the real div bcz whereneve inner div becomes bigger I dont want to
-          // show the resizing of entire dots_container
-          <div
-            key={i}
-            id="dot-container"
-            className="w-[3px] h-[3px] sm:w-3 sm:h-3 flex justify-center items-center"
-          >
-            <div
-              id="dot"
-              className={` rounded-full cursor-pointer transition-all  ${
-                i === currentSlideIndex
-                  ? "bg-white p-[3px] sm:p-[6px]"
-                  : "p-[3px] sm:p-1 bg-gray-400"
-              }`}
-              onClick={() => setCurrentSlideIndex(i)}
-            ></div>
-          </div>
-        ))}
+        <SwiperSlide>
+          <Image
+            src={banner1}
+            alt="banner"
+            className="w-full h-[220px] sm:h-[420px] object-cover"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            src={banner2}
+            alt="banner"
+            className="w-full h-[220px] sm:h-[420px] object-cover"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            src={banner3}
+            alt="banner"
+            className="w-full h-[220px] sm:h-[420px] object-cover"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            src={banner4}
+            alt="banner"
+            className="w-full h-[220px] sm:h-[420px] object-cover"
+          />
+        </SwiperSlide>
+      </Swiper>
+      <div className="btnsContainer  ">
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="absolute top-[50%] left-2 z-[999] "
+        >
+          <IoCaretBack
+            size={50}
+            className="text-gray-600 hover:text-gray-800"
+          />
+        </button>
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="absolute top-[50%] right-2 z-[999] text-gray-600 hover:text-gray-800"
+        >
+          <IoCaretForward size={50} />
+        </button>
       </div>
-      {/* //--------------------------------------------------} */}
+      <div></div>
     </div>
   );
 }
