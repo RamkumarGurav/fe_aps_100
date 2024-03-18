@@ -1,8 +1,7 @@
-
 import "./globals.css";
 import { Lato } from "next/font/google";
 
-const font=Lato({weight:"400" ,subsets:['latin']})
+const font = Lato({ weight: "400", subsets: ["latin"] });
 export default function RootLayout({
   children,
 }: {
@@ -10,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className}`}>
+      <body className={`${font.className} max-w-[1536px] mx-auto bg-gray-400`}>
         {children}
         <div id="galleryModal"></div>
       </body>

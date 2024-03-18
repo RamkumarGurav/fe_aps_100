@@ -52,12 +52,9 @@ export default async function Gallery({
   return (
     <div className="w-[100%] ">
       {/* <div className="h-[75px]"></div> */}
-      <MovingMessage
-        message='"Admissions Open 2024-25"'
-        classes="text-secondary-red1 bg-[#F8F4E1]"
-      />
+
       <div
-        className={`gallery-banner flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
+        className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
       >
         <h1 className={`text-2xl sm:text-4xl text-white text-center`}>

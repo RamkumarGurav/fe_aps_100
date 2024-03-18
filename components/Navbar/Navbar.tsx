@@ -56,11 +56,11 @@ export default function Navbar({
       <HeaderTop contactUs={contactUs} />
 
       <div
-        className={`min-w-[100%]  sticky top-0 left-0 right-0 ${
+        className={`min-w-[100%] bg-yellow-muted sticky top-[-2px] left-0 right-0 ${
           isSticky ? "h-[70.77px] lg:h-[84px]" : "h-[74.88px] lg:h-[100px]"
         }   
          
-        flex items-center text-gray-900 font-serif w-full  h-full  ${
+        flex items-center text-gray-900 font-serif w-full  h-full md:px-[35px] xl:px-[70px] ${
           font.className
         }  shadow-b
          z-[998]
@@ -68,7 +68,7 @@ export default function Navbar({
         ref={mainNavBarRef}
       >
         <div
-          className={`wrapperToMakeZindexWork w-full h-full  bg-yellow-muted  px-3 pb-1  xl:px-[91px]
+          className={`wrapperToMakeZindexWork w-full h-full  bg-yellow-muted  px-4 pb-1  
          z-[997]`}
         >
           <div className=" h-full  flex items-center  justify-between    ">

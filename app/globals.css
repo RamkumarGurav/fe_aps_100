@@ -147,7 +147,7 @@
 }
 
 .shadow-b {
-  box-shadow: -5px 0 8px -5px #333;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 
 .shadow-r {
@@ -161,6 +161,19 @@
 .shadow-all {
   box-shadow: 0 0 5px #333;
 }
+
+.shadow-admissionCard-icon {
+  box-shadow: rgba(0, 0, 0, 0.45) 0 20px 69px;
+}
+
+.parent-element {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
+.clipped-element {
+  clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%, 0, 50% 50%);
+}
+
 /* //--------------------------------------------------} */
 
 /* //---Navbar */
@@ -213,4 +226,83 @@
   /* z-index: -99 !important; */
 }
 
-/* //--------------------------------------------------} */
+/* //--------------------ADMISSION PROCEDURE PAGE------------------------------} */
+
+.admitCardParent {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.admitCardBgImageContainer1 {
+  background-image: url("../public/icon-bg-1.png");
+  transition: background-image 0.3s ease;
+}
+.admitCardBgImageContainer2 {
+  background-image: url("../public/icon-bg-2.png");
+  transition: background-image 0.3s ease;
+}
+
+.admitCardParent:hover .admitCardBgImageContainer2 {
+  z-index: 10;
+  height: 105px;
+  transition: height 0.3s ease; /* Smooth transition for height property */
+}
+
+.admitCardParent:hover .admitIcon1 {
+  color: white;
+}
+.admitCardParent:hover .admissionProcStep1 {
+  color: white;
+}
+.admissionProcStep1:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(0deg, #1471e2, #0551af 100%);
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  transform: scale(0, 0);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.admitCardParent:hover .admissionProcStep1:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(0deg, #1471e2, #0551af 100%);
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.apIcon1 {
+  background-image: url("../public/survey-1.svg");
+}
+.admitCardParent:hover .apIcon1 {
+  background-image: url("../public/survey-1h.png");
+}
+.apIcon2 {
+  background-image: url("../public/designing-1.svg");
+}
+.admitCardParent:hover .apIcon2 {
+  background-image: url("../public/designing-1h.svg");
+}
+.apIcon3 {
+  background-image: url("../public/distribution-1.svg");
+}
+.admitCardParent:hover .apIcon3 {
+  background-image: url("../public/distribution-1h.svg");
+}
+.apIcon4 {
+  background-image: url("../public/consulting-1.svg");
+}
+
+.admitCardParent:hover .apIcon4 {
+  background-image: url("../public/consulting-1h.svg");
+}

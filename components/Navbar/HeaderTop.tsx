@@ -10,9 +10,9 @@ export default function HeaderTop({ contactUs }: { contactUs: ContactUsInt }) {
   return (
     <div
       id="header-top"
-      className={`bg-[#140A46] text-white h-[31.5px] md:h-[41px] ${lato.className} relative z-[999]`}
+      className={`bg-[#140A46] text-white md:px-[35px] xl:px-[70px] h-[31.5px] md:h-[41px] ${lato.className} relative z-[999]`}
     >
-      <div className="px-[14px] h-full flex justify-between ">
+      <div className="px-4 h-full flex justify-between ">
         <div className="flex ">
           <div className="hidden lg:flex justify-center items-center  gap-1">
             <FiMail size={14} className="text-gray-100" />

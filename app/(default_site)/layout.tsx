@@ -4,6 +4,7 @@ import SideEnquire from "@/components/Layout/SideEnquire";
 import FooterTop from "@/components/Footer/FooterTop";
 import RcContainer from "@/components/Layout/RcContainer";
 import { navLinks, contactUs } from "@/utils/displayData";
+import MovingMessage from "@/components/MovingMessage/MovingMessage";
 
 export const metadata = {
   title: "Web Design & Digital Marketing Services | Mars Web solution",
@@ -39,9 +40,12 @@ export default async function WebsiteLayout({
   navLinks.gallery.dropDown = dropDownLinks;
 
   return (
-    <div>
+    <div className="bg-white">
       <Navbar contactUs={contactUs} navLinks={navLinks} />
-
+      <MovingMessage
+        message='"Admissions Open 2024-25"'
+        classes="text-secondary-red1 bg-[#F8F4E1]"
+      />
       <main>{children}</main>
       <RcContainer />
       <SideEnquire admissionYear={admissionYear} />

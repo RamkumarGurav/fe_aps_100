@@ -3,8 +3,8 @@ let currentYear = new Date().getFullYear();
 
 const FooterBottom = () => {
   return (
-    <footer className="bg-[#15222E] py-4 w-full ">
-      <div className="container mx-auto  flex flex-col gap-2  text-center w-full lg:flex-row justify-between items-center">
+    <footer className="bg-[#15222E] py-4 sm:px-[35px] xl:px-[70px] w-full ">
+      <div className="px-4 mx-auto  flex flex-col gap-2  text-center w-full lg:flex-row justify-between items-center">
         <p className="text-sm text-gray-400  sm:whitespace-nowrap">
           © Copyright {currentYear}{" "}
           <span className="text-red-600">Appolo Public School</span>. All Rights

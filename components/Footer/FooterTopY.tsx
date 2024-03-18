@@ -12,9 +12,9 @@ const font = Roboto({ weight: "400", subsets: ["latin"] });
 const FooterTop = () => {
   return (
     <footer
-      className={`bg-gray-900  text-white md:px-[35px] xl:px-[70px] py-[50px] ${font.className} font-sans`}
+      className={`bg-gray-900 text-white py-10 ${font.className} font-sans`}
     >
-      <div className=" px-4 mx-auto ">
+      <div className="container px-4 mx-auto ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-10">
           <AnimatePresence>
             <motion.div
@@ -24,7 +24,7 @@ const FooterTop = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
             >
-              <h4 className=" mb-4 text-xl font-medium tracking-wide">
+              <h4 className=" mb-4 text-xl font-semibold tracking-wide">
                 Quick Links
               </h4>
               <ul className="footer_nav2 list-unstyled space-y-2">
@@ -78,7 +78,7 @@ const FooterTop = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
             >
-              <h4 className=" mb-4 text-xl font-medium tracking-wide">
+              <h4 className=" mb-4 text-xl font-semibold tracking-wide">
                 Contact Us
               </h4>
               <ul className="footer_nav2 list-unstyled space-y-2">
