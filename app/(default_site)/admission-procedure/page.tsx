@@ -220,7 +220,7 @@ export default function PageName() {
           <div className={`grid lg:grid-cols-2`}>
             <div className="left ">
               <div className="headingContainer mb-6">
-                <div className="text-[20px] lg:text-[27px] text-start font-bold text-gray-800 mb-4">
+                <div className="text-[20px] lg:text-[25px] xl:text-[27px] text-start font-bold text-gray-800 mb-4">
                   Documents Required for Admission:
                 </div>
                 <div className="w-[100px] border-b-[3px] border-red-700 mb-3"></div>
@@ -270,7 +270,7 @@ export default function PageName() {
 
             <div className="right mt-4 lg:mt-0">
               <div className="headingContainer mb-6">
-                <div className="text-[20px] lg:text-[27px] text-start font-bold text-gray-800 mb-4">
+                <div className="text-[20px] lg:text-[25px] xl:text-[27px]  text-start font-bold text-gray-800 mb-4">
                   Enquire Here
                 </div>
                 <div className="w-[100px] border-b-[3px] border-red-700 "></div>

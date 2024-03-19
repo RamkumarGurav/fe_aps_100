@@ -26,7 +26,7 @@ export default function PageName() {
         </div>
       </div>
       <section
-        id="chairpersonMsg"
+        id="principalMsg"
         className="py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]  "
       >
         <div className="px-4 ">
@@ -37,22 +37,24 @@ export default function PageName() {
             </div>
             <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
           </div>
-          <div className="chairpersonMsgContainer bg-[#FAF6E2] pb-4">
-            <div className=" grid lg:grid-cols-2 p-4">
+          <div className="principalMsgContainer bg-[#FAF6E2] pb-4">
+            <div className=" lg:grid lg:grid-cols-2 p-4 pb-0">
               <div className="left">
                 <h3
-                  className={`text-[#007BFF] text-lg sm:text-xl font-bold mb-2 `}
+                  className={`text-[#007BFF] text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold mb-3 `}
                 >
                   Ms. Sreelakshmi S.
                 </h3>
-                <h4 className={`text-[#e6272d] text-base font-semibold mb-2`}>
+                <h4
+                  className={`text-[#e6272d] text-base xl:text-2xl font-semibold mb-3`}
+                >
                   Principal, M.A., B.Ed.
                 </h4>
-                <p className="leading-8  text-[#1d1d1d]">
+                <p className="leading-8  text-[#1d1d1d] mb-3">
                   “Better than a thousand days of diligent study is one day with
                   a great teacher.”
                 </p>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+                <p className={`   leading-8  text-[#1d1d1d] mb-3`}>
                   {" "}
                   At Appolo, we believe that education cannot be limited merely
                   to textbooks and classrooms. It is our core belief that right
@@ -64,20 +66,13 @@ export default function PageName() {
                   needs of each of our students to bring out the best in their
                   interest.
                 </p>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
-                  {" "}
-                  We strongly believe in continual evolvement of
-                  teaching-learning methodologies to equip our students with
-                  competencies and skills that prepare them for their entry into
-                  the challenging world beyond school.
-                </p>
               </div>
-              <div className="right flex justify-center items-start pt-0 md:pt-10 px-2">
+              <div className="right flex  justify-center items-start pt-0  px-2">
                 <div
                   className="p-4 
                "
                 >
-                  <div className="flex justify-stretch  ">
+                  <div className="flex justify-stretch  p-10 pb-0 ">
                     <div className="   ">
                       <Image
                         src={sreelakshmi}
@@ -91,7 +86,14 @@ export default function PageName() {
                 </div>
               </div>
             </div>
-            <p className={`px-4   leading-8  text-[#1d1d1d]`}>
+            <p className={`px-4  mb-3 leading-8  text-[#1d1d1d]`}>
+              {" "}
+              We strongly believe in continual evolvement of teaching-learning
+              methodologies to equip our students with competencies and skills
+              that prepare them for their entry into the challenging world
+              beyond school.
+            </p>
+            <p className={`px-4 mb-3  leading-8  text-[#1d1d1d]`}>
               {" "}
               In light of the utmost and superior outcome of our students, we
               ensure to provide an empowering child-centric environment for

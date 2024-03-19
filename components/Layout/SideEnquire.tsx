@@ -14,7 +14,7 @@ export default function SideEnquire({
 
   return (
     <div
-      className={`font-sans ${font.className} text-sm text-white  font-semibold z-[99]`}
+      className={`font-sans ${font.className} text-sm text-white  font-semibold relative z-[999]`}
     >
       <div
         className={` visible fixed bottom-0 left-0 right-0 w-full sm:hidden  `}

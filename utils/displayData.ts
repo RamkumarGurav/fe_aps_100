@@ -167,3 +167,280 @@ export const msgSlides = [
   },
 ];
 //--------------------------------------------------}
+
+//{--------------CURRICULUM PAGE--------------
+export interface curriculumDetailsInt {
+  [key: string]: any;
+}
+export const curriculumDetails: curriculumDetailsInt = {
+  curriculumData: {
+    mainHeading: "Curriculum",
+    list1: [
+      "The Curriculum is Theme based",
+      "Child Centered, focused on using a wide range of learning experiences",
+      "Encourages an Integrated approach",
+      "Provides scope for Contextualization",
+      "Follows a Social Constructivist approach,encourages development of Life Skills",
+    ],
+    list2Heading: "The Curriculum document comprises of three parts:",
+    list2: [
+      "Part 1, Curriculum for Primary Classes (I-V)",
+      "Part 2, Curriculum for Upper Primary Classes (VI-VIII)",
+      "Part 3, Higher classes (IX & X)",
+    ],
+  },
+
+  classSubjectsData: [
+    {
+      mainHeading: "PRIMARY",
+      list1: [
+        "English",
+        "Kannada",
+        "Hindi",
+        "Mathematics",
+        "Environmental science(I &II)",
+        "Science(III –V)",
+        "Social studies(III –V)",
+        "Computer Studies",
+        "Art education",
+        "General Knowledge and value education",
+      ],
+    },
+    {
+      mainHeading: "UPPER PRIMARY",
+      list1: [
+        "English",
+        "Kannada",
+        "Hindi",
+        "Mathematics",
+        "History & Civics",
+        "Geography",
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Computer Studies",
+        "Art education",
+        "Yoga",
+        "General Knowledge and value education",
+      ],
+    },
+    {
+      mainHeading: "HIGHER CLASSES",
+      list1: [
+        "First Language(English)",
+        "Second Language(Kannada)",
+        "Mathematics",
+        "History & Civics",
+        "Geography",
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Computer Studies",
+        "Art education",
+        "Yoga",
+        "General Knowledge and value education",
+      ],
+    },
+  ],
+
+  assessmentData: {
+    mainHeading: "Assessment",
+    mainTag: "The assessment for learning is done to",
+    list1: [
+      "Identify strengths ,weakness/learning gaps and problems faced by children;",
+      "Provide timely ,corrective teaching-learning inputs to children to ensure their better learning in future;",
+      "Monitor the progress of each child with reference to his/her previous performancd so as to develop every child to her/his full potential;",
+      "Improve/modify teaching learning practices and methods and use of materials by teachers based on each child requirement and need;",
+      "Monitor children’s learning and performance and;",
+      "Provide data on children’s learning to each child/parents/school.",
+    ],
+  },
+
+  toolsOfAssessmentData: {
+    mainHeading: "Tools of Assessment",
+    list1: [
+      "Oral",
+      "Written",
+      "Teacher’s observation",
+      "Child centered classroom activities such as discussion/dialogue, project work, model making/posters/charts, experimentation, group and individual activities, games/quizzes and maintaining every child’s portfolio, etc.",
+    ],
+  },
+};
+
+//--------------------------------------------------}
+
+//{--------------CO CURRICULAR ACTIVITIES PAGE--------------
+export interface cocurricularActivitiesDetailsInt {
+  [key: string]: any;
+}
+export const cocurricularActivitiesDetails: cocurricularActivitiesDetailsInt = {
+  cocurricularActivitiesData: {
+    mainHeading: "Co-Curricular Activities",
+    subHeading1:
+      "Apart from the regular school exams the belw exams are conducted for the students every year.",
+    list1: [
+      "All India GK Exam by CHRD",
+      "Science Olympiad",
+      "Math Olympiad",
+      "English Olympiad",
+      "Reasoning and Aptitude Olympiad",
+    ],
+    subHeading2:
+      "Appolo Public School is pride itself in offering the students a wide range of co-curricular activities to enhance the student’s life skill.",
+  },
+  listOfCocurricularActivitiesData: {
+    mainHeading: "List of co-curricular activities",
+    lists: [
+      ["Music", "Dance", "Drama", "Yoga", "Karate"],
+      [
+        "Work education",
+        "Gardening",
+        "Science club",
+        "Mathematics club",
+        "Literary club",
+      ],
+      [
+        "Heritage club",
+        "Educational excursion",
+        "Community service, volunteering activities",
+        "NIE programs",
+        "Scouts & Guides",
+      ],
+    ],
+  },
+};
+
+//--------------------------------------------------}
+
+//{--------------SCHOOL TIMINGS PAGE--------------
+export const schoolTimingsDetails = {
+  mainHeading: ["School", "Timings"],
+  mondayToFridayTimingsData: {
+    mainHeading: "MONDAY TO FRIDAY",
+    list1: [
+      { period: "ASSEMBLY", timing: "8:25am to 8:40am" },
+      { period: "1st period", timing: "8:40am to 9:10am" },
+      { period: "2nd period", timing: "9:10am to 10:00am" },
+      { period: "Short break", timing: "10:00am to 10:10am" },
+      { period: "3rd period", timing: "10:10am to 10:50am" },
+      { period: "4th period", timing: "10:50am to 11:30am" },
+      { period: "5th period", timing: "11:30am to 12:10pm" },
+      { period: "Lunch Break", timing: "12:10pm to 12:50pm" },
+      { period: "6th period", timing: "12:50pm to 1:30pm" },
+      { period: "7th period", timing: "1:30pm to 2:10pm" },
+      { period: "8th period", timing: "2:10pm to 2:50pm" },
+    ],
+  },
+  saturdayTimingsData: {
+    mainHeading: "SATURDAY (Class 6 -10)",
+    list1: [
+      { period: "ASSEMBLY", timing: "8:25am to 8:40am" },
+      { period: "1st period", timing: "8:40am to 9:10am" },
+      { period: "2nd period", timing: "9:10am to 10:00am" },
+      { period: "Short break", timing: "10:00am to 10:10am" },
+      { period: "3rd period", timing: "10:10am to 10:50am" },
+      { period: "4th period", timing: "10:50am to 11:30am" },
+      { period: "5th period", timing: "11:30am to 12:10pm" },
+    ],
+  },
+};
+//--------------------------------------------------}
+
+//{---------------ACADEMIC CALENDER PAGE-------------
+export const academicCalendarDetails = {
+  mainHeadingList: ["Tentative Academic", "Calender 2021-22"],
+  monthsList: [
+    { month: "MAY", eventsList: ["Bridge Course"] },
+    {
+      month: "JUNE",
+      eventsList: ["Orientation Programme", "Environmental Day"],
+    },
+    { month: "JULY", eventsList: ["Colors Day", "First assessment"] },
+    { month: "AUGUST", eventsList: ["Independence Day Celebration"] },
+    {
+      month: "SEPTEMBER",
+      eventsList: [
+        "Presentation",
+        "Grandparents Day",
+        "Mid Term Examination",
+        "Teacher’s Day",
+      ],
+    },
+    { month: "OCTOBER", eventsList: ["Dasara"] },
+    {
+      month: "NOVEMBER",
+      eventsList: ["Children’s Day", "Fruits and vegetables day"],
+    },
+    { month: "DECEMBER", eventsList: ["Christmas", "Second Assessment"] },
+    {
+      month: "JANUARY",
+      eventsList: ["Presentation", "Republic Day", "Prize distribution"],
+    },
+    { month: "FEBRUARY", eventsList: ["Annual day/Sports Day"] },
+    { month: "MARCH", eventsList: ["Annual Assessment"] },
+    { month: "APRIL", eventsList: ["Result Announcement"] },
+  ],
+};
+
+//--------------------------------------------------}
+
+//----------------------HOLIDAYS-LIST PAGE----------------------------}
+export const holidayCalendarDetails = {
+  mainHeadingList: ["List of Holidays", "For the Academic Year 2021-22"],
+  holidaysList: [
+    { date: "12th May 2021", day: "Wednesday", event: "Eid ul Fitr" },
+    { date: "21th July 2021", day: "Wednesday", event: "Bakrid" },
+    {
+      date: "15th August 2021",
+      day: "Sunday",
+      event: "Independence day (CELEBRATION)",
+    },
+    { date: "19th August 2021", day: "Thursday", event: "Muharram" },
+    {
+      date: "20th August 2021",
+      day: "Friday",
+      event: "Varamahalakshmi Festival",
+    },
+    { date: "30th August 2021", day: "Monday", event: "Krishnajanmashtami" },
+    { date: "9th September 2021", day: "Thursday", event: "Gowri festival" },
+    { date: "10th September 2021", day: "Friday", event: "Ganesha festival" },
+    {
+      date: "2nd October 2021",
+      day: "Saturday",
+      event: "Gandhi Jayanthi (CELEBRATION)",
+    },
+    {
+      date: "14th October to 23rd October 2021",
+      day: "Thursday to Saturday",
+      event: "Dussehra holidays",
+    },
+    { date: "19th October 2021", day: "Tuesday", event: "Eid-Milad" },
+    { date: "20th October 2021", day: "Wednesday", event: "Valmiki Jayanthi" },
+    {
+      date: "1st November 2021",
+      day: "Monday",
+      event: "Kannada Rajyothsava(CELEBRATION)",
+    },
+    {
+      date: "4th November to 6th November 2021",
+      day: "Thursday to Saturday",
+      event: "Deepavali",
+    },
+    {
+      date: "3rd December 2021",
+      day: "Friday",
+      event: "Kanakadasara Jayanthi",
+    },
+    { date: "24th December 2021", day: "Saturday", event: "Christmas" },
+    { date: "14th January 2022", day: "Friday", event: "Makara sankranthi" },
+    {
+      date: "26th January 2022",
+      day: "Wednesday",
+      event: "Republic Day (CELEBRATION)",
+    },
+    { date: "1st March 2022", day: "Tuesday", event: "Mahashivarathri" },
+    { date: "13th April 2022", day: "Wednesday", event: "Ugadi" },
+    { date: "14th April 2022", day: "Thursday", event: "Ambedkar Jayanthi" },
+    { date: "15th April 2022", day: "Friday", event: "Good Friday" },
+  ],
+};
