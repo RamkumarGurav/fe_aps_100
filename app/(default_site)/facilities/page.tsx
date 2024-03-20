@@ -1,21 +1,32 @@
-import Image from "next/image";
+"use client";
 import { Poppins } from "next/font/google";
 const font = Poppins({ weight: "400", subsets: ["latin"] });
 import Link from "next/link";
-import { holidayCalendarDetails } from "@/utils/displayData";
 import styles from "./styles.module.css";
-import GalleryModalContainer from "@/components/GalleryDetails/GalleryModalContainer";
-import { getImagesWithSrcAndBlurDataUrlArr } from "@/utils/base64Converters";
 import InfraGalleryModalContainer from "./InfraGalleryModalContainer";
+import KCModalContainer from "./KCModalContainer";
+import ScienceLabModalContainer from "./ScienceLabModalContainer";
+import TransportModalContainer from "./TransportModalContainer";
+import SportsModalContainer from "./SportsModalContainer";
 
+// In your component where you have the Link tag
+import { useEffect } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 export default function PageName() {
-  // let albumImages = [
-  //   {
-  //     imageUrl: `../..`,
-  //   },
-  // ];
+  const NAVBAR_HEIGHT = 280; // Adjust this value according to your actual navbar height
 
-  // let albumsBlurDataUrl = await getImagesWithSrcAndBlurDataUrlArr(albumImages);
+  const pathname = usePathname();
+  const params = useSearchParams();
+
+  useEffect(() => {
+    console.log(params);
+    const hash = pathname.split("#")[1]; // Get the section id from the URL hash
+    const section = document.getElementById(hash); // Find the section element by id
+    if (section) {
+      const offsetTop = section.offsetTop - NAVBAR_HEIGHT; // Adjusted offset top considering navbar height
+      window.scrollTo({ top: offsetTop, behavior: "smooth" }); // Scroll to the adjusted position
+    }
+  }, [pathname, params]);
   return (
     <div className={`${font.className}  bg-[#FDFBF0]`}>
       <div
@@ -46,7 +57,7 @@ export default function PageName() {
           <div className="">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
               <Link
-                href={"#"}
+                href={"#infrastuctureSection"}
                 className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
               >
                 <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -81,7 +92,7 @@ export default function PageName() {
                 </h4>
               </Link>
               <Link
-                href={"#"}
+                href={"#knowledgeCenterSection"}
                 className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
               >
                 <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -116,7 +127,7 @@ export default function PageName() {
                 </h4>
               </Link>
               <Link
-                href={"#"}
+                href={"#scienceLabSection"}
                 className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
               >
                 <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -186,7 +197,7 @@ export default function PageName() {
                 </h4>
               </Link>
               <Link
-                href={"#"}
+                href={"#sportsSection"}
                 className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
               >
                 <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -221,7 +232,7 @@ export default function PageName() {
                 </h4>
               </Link>
               <Link
-                href={"#"}
+                href={"#transportSection"}
                 className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
               >
                 <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -283,9 +294,146 @@ export default function PageName() {
             child
           </p>
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
-            <InfraGalleryModalContainer
+            <InfraGalleryModalContainer />
+          </div>
+        </div>
+      </section>
+      <section className={`  sm:px-[35px] xl:px-[70px]`}>
+        <div className={` px-4 mx-auto `}>
+          <div className="border-b-gray-200 border-b-[1px] my-0"></div>
+        </div>
+      </section>
+      <section
+        id="knowledgeCenterSection"
+        className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
+      >
+        <div className={` px-4 mx-auto `}>
+          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+            Knowledge&nbsp;
+            <span className="text-secondary-red1">Center</span>
+          </div>
+          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          <strong className={`leading-8   text-[#1d1d1d] mb-3`}>
+            “NEVER STOP LEARNING, BECAUSE LIFE NEVER STOPS TEACHING”
+          </strong>
+          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+            Our school library serves as the center and coordinating agency to
+            facilitate, support the students learning. The goal is to ensure all
+            the members of the school community to have access to books and
+            reading, to information and to information technology. The reference
+            and lending library is well stocked with a vast collection of books,
+            reports, journals and periodicals. The library also provides access
+            to the business and management related digital resources. Students
+            can utilize these services for their classroom –related work for
+            further research into their areas of interest.
+          </p>
+          <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
+            <KCModalContainer />
+          </div>
+        </div>
+      </section>
+      <section id="Section" className={`  sm:px-[35px] xl:px-[70px]`}>
+        <div className={` px-4 mx-auto `}>
+          <div className="border-b-gray-200 border-b-[1px] my-0"></div>
+        </div>
+      </section>
+      <section
+        id="scienceLabSection"
+        className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
+      >
+        <div className={` px-4 mx-auto `}>
+          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+            Science&nbsp;
+            <span className="text-secondary-red1">Lab</span>
+          </div>
+          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
 
-            />
+          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+            Science lab is equipped with all the required materials to conduct
+            laboratory teaching and experiments that encourage deep
+            understanding in children. Children are able to retain the knowledge
+            for longer when they are performing the experiments individually
+            through teacher’s guidelines. Students aregetting a first-hand
+            learning experience by performing various experiments. Students are
+            made to use the models and understand different scientific theories
+            and concepts.. Anatomy models, physics science kits, and chemistry
+            science kits for instance make it easy to understand the otherwise
+            complex theories of science. Science is made very interesting and
+            effective for students in our institution.
+          </p>
+          <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
+            <ScienceLabModalContainer />
+          </div>
+        </div>
+      </section>
+      <section id="Section" className={`  sm:px-[35px] xl:px-[70px]`}>
+        <div className={` px-4 mx-auto `}>
+          <div className="border-b-gray-200 border-b-[1px] my-0"></div>
+        </div>
+      </section>
+      <section
+        id="sportsSection"
+        className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
+      >
+        <div className={` px-4 mx-auto `}>
+          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+            Sports&nbsp;
+          </div>
+          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+
+          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+            SPORTS teaches us character, it teaches us how to play by rules, it
+            teaches us to know what it feels like to win and lose, it teaches us
+            about life. The best part of any game is the opportunity to play.
+            Our Apolities are being encouraged, motivated, taught and trained in
+            these perspectives. We categorize our children based on their age
+            and are given ample of opportunities both in Indoor and Outdoor
+            games. Along with this our Apolities are proficiently educated to
+            celebrate our National festivals with much more discipline. We feel
+            proud of our Apollo representators in various Scouts and Guides
+            activities,KACA Cricket tournaments, Cluster and District level
+            sports, State level parades during Independence Day and Republic Day
+            and around 600+ Apolities were a part of our State festival Kannada
+            Rajyothsava which added an extra feather of dignity to our APOLLO
+            FAMILY
+          </p>
+          <strong className={`leading-8   text-[#1d1d1d] mb-3`}>
+            "SPORTS NOT ONLY BUILD BETTER SPORTSMEN BUT ALSO BETTER PEOPLE"
+          </strong>
+          <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
+            <SportsModalContainer />
+          </div>
+        </div>
+      </section>
+      <section id="Section" className={`  sm:px-[35px] xl:px-[70px]`}>
+        <div className={` px-4 mx-auto `}>
+          <div className="border-b-gray-200 border-b-[1px] my-0"></div>
+        </div>
+      </section>
+      <section
+        id="transportSection"
+        className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
+      >
+        <div className={` px-4 mx-auto `}>
+          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+            Transport&nbsp;
+          </div>
+          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+            Transport – The need for safe passage of each child to school and
+            back home is of paramount importance to us. To ensure safe travel
+            the school has its own fleet of school buses designed as per
+            standards and manned by trained drivers and personnel sensitized to
+            the needs of small children. For supervision and monitoring a
+            transport attendant is on board throughout the journey. Mobile
+            phones have been provided in each bus that ensures efficiency in
+            terms of service and better communication in case of emergencies.
+            Besides ensuring the implementation of the safety norms, all staff
+            on the bus is well trained in first aid and emergency management.
+          </p>
+
+          <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
+            <TransportModalContainer />
           </div>
         </div>
       </section>

@@ -5,7 +5,7 @@ import Image from "next/image";
 const font = Lato({ weight: "400", subsets: ["latin"] });
 export default function PageName() {
   return (
-    <div className={`${font.className} bg-[#F9F9F9] relative z-[-1]`}>
+    <div className={`${font.className}  relative z-[1]`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}

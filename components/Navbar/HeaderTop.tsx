@@ -28,7 +28,7 @@ export default function HeaderTop({ contactUs }: { contactUs: ContactUsInt }) {
           </div>
         </div>
         <Link
-          href="https://www.appolopublicschool.com/contact-us.html"
+          href="/contact-us"
           className={`h-full px-3 text-[13px] leading-loose flex items-center justify-center bg-red-500 text-white font-semibold uppercase hover:bg-primary-blue`}
         >
           contact us

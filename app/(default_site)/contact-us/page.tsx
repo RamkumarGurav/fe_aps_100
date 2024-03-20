@@ -38,7 +38,7 @@ export default function PageName() {
                 <div className="w-[100px] border-b-[3px] border-red-500 mb-3"></div>
               </div>
               <div
-                className={`contactCard mb-6 shadow-sm flex items-center gap-4 rounded border border-gray-300 p-4 lg:mr-[100px]`}
+                className={`contactCard mb-6 shadow-lg flex items-center gap-4 rounded border border-gray-300 p-4 lg:mr-[100px]`}
               >
                 <div className={`bg-red-500 rounded-full p-3 sm:p-4 `}>
                   <IoLocationSharp size={25} className={`text-white`} />
@@ -57,7 +57,7 @@ export default function PageName() {
               </div>
 
               <div
-                className={`contactCard mb-6 shadow-sm flex items-center gap-4  rounded border border-gray-300 p-4 lg:mr-[100px]`}
+                className={`contactCard mb-6 shadow-lg flex items-center gap-4  rounded border border-gray-300 p-4 lg:mr-[100px]`}
               >
                 <div className={`bg-red-500 rounded-full p-3 sm:p-4 `}>
                   <MdEmail size={25} className={`text-white`} />
@@ -74,7 +74,7 @@ export default function PageName() {
                 </div>
               </div>
               <div
-                className={`contactCard mb-6 shadow-sm flex items-center gap-4  rounded border border-gray-300 p-4 lg:mr-[100px]`}
+                className={`contactCard mb-6 shadow-lg flex items-center gap-4  rounded border border-gray-300 p-4 lg:mr-[100px]`}
               >
                 <div className={`bg-red-500 rounded-full p-3 sm:p-4 `}>
                   <FaPhone size={25} className={`text-white`} />

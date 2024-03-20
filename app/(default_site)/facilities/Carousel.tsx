@@ -3,6 +3,8 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+
+//Images--
 import infra1 from "@/public/infrastructure/1.jpg";
 import infra2 from "@/public/infrastructure/2.jpg";
 import infra3 from "@/public/events-img-1.jpg";
@@ -11,34 +13,45 @@ import infra5 from "@/public/events-img-3.jpg";
 import infra6 from "@/public/events-img-4.jpg";
 import infra7 from "@/public/sports/2.jpg";
 import infra8 from "@/public/sports/1.jpg";
-export default function InfraGalleryCarousel({
-  children,
-  slides,
+import knowledgeCentre1 from "@/public/knowledge-center/1.jpg";
+import knowledgeCentre2 from "@/public/knowledge-center/2.jpg";
+import scienceLab1 from "@/public/science-lab/5.jpg";
+import scienceLab2 from "@/public/science-lab/6.jpg";
+import scienceLab3 from "@/public/science-lab/01.jpg";
+import scienceLab4 from "@/public/science-lab/02.jpg";
+import scienceLab5 from "@/public/science-lab/03.jpg";
+import scienceLab6 from "@/public/science-lab/4.jpg";
+import sports1 from "@/public/sports/1.jpg";
+import sports2 from "@/public/sports/2.jpg";
+import sports3 from "@/public/sports/3.jpg";
+import transport1 from "@/public/transport/1.jpg";
+import transport2 from "@/public/transport/2.jpg";
+import transport3 from "@/public/transport/3.jpg";
+export default function Carousel({
   autoPlay = false,
   interval = 3000,
   currentIndex,
 }: {
-  children: React.ReactNode;
-  slides: string | number[];
   autoPlay?: boolean;
   interval?: number;
   currentIndex: number;
 }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(currentIndex);
+  const totalSlidesNum = 22;
 
   console.log(currentIndex ?? currentIndex);
 
   const handleNext = useCallback(
     () =>
       setCurrentSlideIndex(
-        currentSlideIndex === slides.length - 1 ? 0 : currentSlideIndex + 1
+        currentSlideIndex === totalSlidesNum - 1 ? 0 : currentSlideIndex + 1
       ),
-    [currentSlideIndex, slides.length]
+    [currentSlideIndex, totalSlidesNum]
   );
 
   const handlePrev = () =>
     setCurrentSlideIndex(
-      currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1
+      currentSlideIndex === 0 ? totalSlidesNum - 1 : currentSlideIndex - 1
     );
 
   useEffect(() => {
@@ -69,6 +82,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra2}
@@ -76,6 +90,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra3}
@@ -83,6 +98,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra4}
@@ -90,6 +106,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra5}
@@ -97,6 +114,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra6}
@@ -104,6 +122,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra7}
@@ -111,6 +130,7 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
           <Image
             src={infra8}
@@ -118,6 +138,119 @@ export default function InfraGalleryCarousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={knowledgeCentre1}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={knowledgeCentre2}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={scienceLab1}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={scienceLab2}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={scienceLab3}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={scienceLab4}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={scienceLab5}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={scienceLab6}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={sports1}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={sports2}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={sports3}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={transport1}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={transport2}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
+          />
+          <Image
+            src={transport3}
+            alt="my image"
+            width={700}
+            height={500}
+            className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            placeholder="blur"
           />
         </div>
         <div
@@ -149,7 +282,7 @@ export default function InfraGalleryCarousel({
             className="text-gray-100 text-xs inline-block w-[50px] text-right font-sans font-semibold py-1 pr-3  rounded-r-2xl bg-red-900
          bg-gradient-to-r from-gray-900 via-gary-300 to-gray-900 "
           >
-            {currentSlideIndex + 1}/{slides.length}
+            {currentSlideIndex + 1}/{totalSlidesNum}
           </span>
         </div>
         {/* //--------------------------------------------------} */}

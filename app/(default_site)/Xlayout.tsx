@@ -24,23 +24,20 @@ async function fetchData() {
   if (!res.ok) return undefined;
   return res.json();
 }
-export default function WebsiteLayout({
+export default async function WebsiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const data = await fetchData();
-  // let dropDownLinks = data?.years.map((item: any) => {
-  //   let link = feBaseUrl + "gallery/" + item.id;
-  //   return {
-  //     name: item.fiscal_year,
-  //     link: link,
-  //   };
-  // });
-  navLinks.gallery.dropDown = [
-    { name: "2022-23", link: "http://localhost:3000/gallery/1" },
-    { name: "2023-24", link: "http://localhost:3000/gallery/2" },
-  ];
+  const data = await fetchData();
+  let dropDownLinks = data?.years.map((item: any) => {
+    let link = feBaseUrl + "gallery/" + item.id;
+    return {
+      name: item.fiscal_year,
+      link: link,
+    };
+  });
+  navLinks.gallery.dropDown = dropDownLinks;
 
   return (
     <div className="bg-white">

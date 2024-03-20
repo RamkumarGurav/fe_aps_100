@@ -8,7 +8,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${font.className} max-w-[1536px] mx-auto bg-gray-400`}>
         {children}
         <div id="galleryModal"></div>
