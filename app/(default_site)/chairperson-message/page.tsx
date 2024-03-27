@@ -49,7 +49,8 @@ export default function PageName() {
                   Chairperson
                 </h4>
                 <p className="leading-8  text-[#1d1d1d]">
-                  “Education is the best gift that can be given to a child”
+                  &ldquo;Education is the best gift that can be given to a
+                  child&rdquo;
                 </p>
                 <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
                   {" "}

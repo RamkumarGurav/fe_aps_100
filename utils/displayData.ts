@@ -171,6 +171,18 @@ export const msgSlides = [
 ];
 //--------------------------------------------------}
 
+//{--------------MISSION-VISION PAGE--------------
+export const visionStatement =
+  "To prepare students to meet the challenges of our changing world by promoting knowledge, skills, and responsibility.";
+export const missionStatements = [
+  "To create a safe and comfortable physical environment, as learning is the chief priority because each student is a valued individual with unique needs.",
+  "To create Child centered class rooms where in it enables student to take the responsibility for their learning and their action.",
+  "To impart quality education and variety of instructional approaches and learning activities to develop confident, self- directed, responsible learner.",
+  "To develop curriculum, linked to our real life situation and to utilize new technologies for holistic development of the child..",
+  "To mould an individual to Excel in learning by imparting the true knowledge based on rich Indian culture blended with Modern learning tools.",
+  "To develop in children the ability to apply themselves to a wide range of educational, social and physical activities.",
+];
+
 //{--------------CURRICULUM PAGE--------------
 export interface curriculumDetailsInt {
   [key: string]: any;

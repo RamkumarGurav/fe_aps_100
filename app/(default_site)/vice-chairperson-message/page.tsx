@@ -49,7 +49,7 @@ export default function PageName() {
                   Vice Chairperson
                 </h4>
                 <p className="leading-8  text-[#1d1d1d]">
-                  “Welcome to the Appolo family!”
+                  &ldquo;Welcome to the Appolo family!&rdquo;
                 </p>
                 <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
                   I take immense pleasure in introducing to Appolo public

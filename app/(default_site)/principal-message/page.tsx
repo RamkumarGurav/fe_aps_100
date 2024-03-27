@@ -51,8 +51,8 @@ export default function PageName() {
                   Principal, M.A., B.Ed.
                 </h4>
                 <p className="leading-8  text-[#1d1d1d] mb-3">
-                  “Better than a thousand days of diligent study is one day with
-                  a great teacher.”
+                  &ldquo;Better than a thousand days of diligent study is one
+                  day with a great teacher.&rdquo;
                 </p>
                 <p className={`   leading-8  text-[#1d1d1d] mb-3`}>
                   {" "}

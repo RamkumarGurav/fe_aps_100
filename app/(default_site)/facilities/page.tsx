@@ -314,7 +314,8 @@ export default function PageName() {
           </div>
           <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
           <strong className={`leading-8   text-[#1d1d1d] mb-3`}>
-            “NEVER STOP LEARNING, BECAUSE LIFE NEVER STOPS TEACHING”
+            &#x0022;NEVER STOP LEARNING, BECAUSE LIFE NEVER STOPS
+            TEACHING&#x0022;
           </strong>
           <p className={`leading-8  text-[#1d1d1d] mb-3`}>
             Our school library serves as the center and coordinating agency to

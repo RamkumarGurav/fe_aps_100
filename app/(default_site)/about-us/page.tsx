@@ -2,6 +2,15 @@ import Link from "next/link";
 import { Lato } from "next/font/google";
 import AbouApsImg from "../../../public/abt-img.jpg";
 import Image from "next/image";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import {
+  textSpringAnimateFromBelow10,
+  textTweenAnimateFromLeft10,
+  textTweenAnimateFromLeft13,
+  textTweenAnimateFromLeft16,
+  textTweenAnimateFromRight10,
+} from "@/utils/variants";
+import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 const font = Lato({ weight: "400", subsets: ["latin"] });
 export default function PageName() {
   return (
@@ -24,20 +33,32 @@ export default function PageName() {
       </div>
       <section
         id="contactUsSection "
-        className={`contactUsSection py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]`}
+        className={`contactUsSection py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px] overflow-hidden`}
       >
         <div className={` px-4 mx-auto `}>
           <div>
             <div className={`grid lg:grid-cols-2`}>
               <div className="left ">
                 <div className="headingContainer mb-6">
-                  <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+                  <AnimatedDiv
+                    className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+                    variants={textSpringAnimateFromBelow10}
+                    initial={"offscreen"}
+                    whileInView={"onscreen"}
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     About &nbsp;
                     <span className="text-secondary-red1">Us</span>
-                  </div>
+                  </AnimatedDiv>
                   <div className="w-[100px] border-b-[3px] border-red-500 mb-3"></div>
                 </div>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+                <AnimatedText
+                  className={`  mt-3 leading-8  text-[#1d1d1d]`}
+                  variants={textTweenAnimateFromLeft10}
+                  initial={"offscreen"}
+                  whileInView={"onscreen"}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   {" "}
                   Appolo Public School, is established by Mrs. Rajab Kasiar
                   under the patronage of The Apollo Education Trust. It has
@@ -54,22 +75,34 @@ export default function PageName() {
                   committed lot, who promote self-confidence, integrity,
                   perseverance, responsibility, self-respect and inter-personal
                   skills.
-                </p>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+                </AnimatedText>
+                <AnimatedText
+                  className={`  mt-3 leading-8  text-[#1d1d1d]`}
+                  variants={textTweenAnimateFromLeft13}
+                  initial={"offscreen"}
+                  whileInView={"onscreen"}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   At Appolo, we look at education as an inviting and exciting
                   journey into the new world of intellectual, spiritual and
                   emotional learning. An educational system that engenders the
                   development and growth of all five aspects of a child's
                   personality - that is the Physical, Cognitive, Aesthetic,
                   Emotional and Spiritual.
-                </p>
+                </AnimatedText>
               </div>
 
-              <div className="right p-4">
+              <div className="right p-4 ">
                 <div className="headingContainer mb-6">
                   <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"></div>
                 </div>
-                <div className=" relative flex justify-center items-start pt-4 mt-4  z-[99]">
+                <AnimatedDiv
+                  className=" relative flex justify-center items-start pt-4 mt-4  z-[99]"
+                  variants={textTweenAnimateFromRight10}
+                  initial={"offscreen"}
+                  whileInView={"onscreen"}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   <div className="absolute z-[-1] top-[-20px] right-[-30px] w-full h-full border-red-500 border-[10px] rounded"></div>
                   <Image
                     src={AbouApsImg}
@@ -78,10 +111,16 @@ export default function PageName() {
                     placeholder="blur"
                   />
                   {/* </div> */}
-                </div>
+                </AnimatedDiv>
               </div>
             </div>
-            <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+            <AnimatedText
+              className={`  mt-3 leading-8  text-[#1d1d1d]`}
+              variants={textTweenAnimateFromLeft16}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               In Appolo, Bangalore, the campus environment and learning
               environment is totally unique where each student is treated with
               love, care and respect. Learning is an unending process and
@@ -89,7 +128,7 @@ export default function PageName() {
               of teaching to enable continuous absorption. Dedicated and
               talented faculty of Appolo supports the continuous development of
               the students.
-            </p>
+            </AnimatedText>
           </div>
         </div>
       </section>

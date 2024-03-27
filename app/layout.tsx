@@ -9,7 +9,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${font.className} max-w-[1536px] mx-auto bg-gray-400`}>
+      <body
+        id="body"
+        className={`${font.className} max-w-[1536px] mx-auto bg-gray-400`}
+      >
         {children}
         <div id="galleryModal"></div>
       </body>

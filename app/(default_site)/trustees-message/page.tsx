@@ -53,10 +53,10 @@ export default function PageName() {
                   Trustee
                 </h4>
                 <p className="leading-8  text-[#1d1d1d] mb-3">
-                  “APPOLO invests in shaping the younger generation to promote
-                  the passion of knowledge and skills. We thrive towards
+                  &ldquo;APPOLO invests in shaping the younger generation to
+                  promote the passion of knowledge and skills. We thrive towards
                   continuous learning process while also keeping in mind the
-                  school’s moto which is Character, Conduct and Culture. ”
+                  school’s moto which is Character, Conduct and Culture.&rdquo;
                 </p>
               </div>
               <div className="right w-full mx-auto  flex  justify-center items-center pt-0  px-2">
@@ -93,9 +93,9 @@ export default function PageName() {
                   Trustee
                 </h4>
                 <p className="leading-8  text-[#1d1d1d] mb-3">
-                  “Appolo moulds the children to face any challenges put forth
-                  to them and helps them rise above the rest in this competitive
-                  world."
+                  &ldquo;Appolo moulds the children to face any challenges put
+                  forth to them and helps them rise above the rest in this
+                  competitive world.&rdquo;
                 </p>
               </div>
               <div className="right w-full mx-auto  flex  justify-center items-center pt-0  px-2">
@@ -132,8 +132,9 @@ export default function PageName() {
                   Trustee
                 </h4>
                 <p className="leading-8  text-[#1d1d1d] mb-3">
-                  “We believe education is a tool which helps us in identifying
-                  our career goal and to lead a more civilized life.."
+                  &ldquo;We believe education is a tool which helps us in
+                  identifying our career goal and to lead a more civilized
+                  life..&rdquo;
                 </p>
               </div>
               <div className="right w-full mx-auto  flex  justify-center items-center pt-0  px-2">

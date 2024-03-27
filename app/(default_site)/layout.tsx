@@ -5,6 +5,7 @@ import FooterTop from "@/components/Footer/FooterTop";
 import RcContainer from "@/components/Layout/RcContainer";
 import { navLinks, contactUs } from "@/utils/displayData";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
+import ScrollToTop from "@/components/Layout/ScrollToTop";
 
 export const metadata = {
   title: "Web Design & Digital Marketing Services | Mars Web solution",
@@ -46,12 +47,13 @@ export default function WebsiteLayout({
     <div className="bg-white">
       <Navbar contactUs={contactUs} navLinks={navLinks} />
       <MovingMessage
-        message='"Admissions Open 2024-25"'
+        message="&ldquo;Admissions Open 2024-25&rdquo;"
         classes="text-secondary-red1 bg-[#F8F4E1]"
       />
       <main>{children}</main>
-      <RcContainer />
+      {/* <RcContainer /> */}
       <SideEnquire admissionYear={admissionYear} />
+      <ScrollToTop />
       <footer id="footer">
         <FooterTop />
         <FooterBottom />

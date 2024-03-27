@@ -1,3 +1,4 @@
+"use client";
 import { Lato } from "next/font/google";
 const font = Lato({ weight: "400", subsets: ["latin"] });
 import Image from "next/image";
@@ -9,6 +10,10 @@ import HomeHeroCarousel from "@/components/Carousel/HomeHeroCarousel";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
 import ToppersCarousel from "@/components/Carousel/ToppersCarousel";
 import MsgsCarousel from "@/components/Carousel/MsgsCarousel";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
+import AnimatedTitle from "@/components/reusable/animated-elements/AnimatedDiv";
+import { textSpringAnimateFromBelow10 } from "@/utils/variants";
 
 export default function Home() {
   const hereSlides = [1, 2, 3, 4];
@@ -24,17 +29,30 @@ export default function Home() {
         id="aboutAps"
         className={`aboutApsContainer py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]`}
       >
-        <div className={` px-4 mx-auto `}>
+        <div className={` px-4 mx-auto overflow-hidden`}>
           <div className="aboutApsContainer grid lg:grid-cols-2">
             <div className="">
-              <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+              <AnimatedDiv
+                className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+                variants={textSpringAnimateFromBelow10}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                viewport={{ once: true, amount: 0.2 }}
+              >
                 About &nbsp;
                 <span className="text-secondary-red1">
                   Appolo Public School
                 </span>
-              </div>
+              </AnimatedDiv>
+
               <div className="w-[100px] border-b-[4px] border-red-500 "></div>
-              <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+              <AnimatedText
+                className={`  mt-3 leading-8  text-[#1d1d1d]`}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, type: "tween" }}
+                viewport={{ once: true, amount: 0.2 }}
+              >
                 {" "}
                 Appolo Public School, is established by Mrs. Rajab Kasiar under
                 the patronage of The Apollo Education Trust. It has built an
@@ -50,21 +68,23 @@ export default function Home() {
                 school educators are a committed lot, who promote
                 self-confidence, integrity, perseverance, responsibility,
                 self-respect and inter-personal skills.
-              </p>
+              </AnimatedText>
             </div>
-            <div className=" flex justify-center items-start pt-10 px-2">
-              {/* <div
-              id="image-container"
-              className="relative w-full h-[500px] lg:h-full overflow-hidden"
-            > */}
+            <AnimatedDiv
+              className="flex justify-center items-start pt-10 px-2"
+              initial={{ opacity: 0, x: "20vw" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, type: "tween" }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <Image
                 src={AbouApsImg}
                 alt="pagination"
                 className="w-full h-auto object-cover "
                 placeholder="blur"
               />
-              {/* </div> */}
-            </div>
+            </AnimatedDiv>
+            {""}
           </div>
         </div>
       </section>
@@ -74,27 +94,61 @@ export default function Home() {
       >
         <div className="px-4">
           <div className="mx-auto flex flex-col justify-center items-center ">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+            <AnimatedDiv
+              className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+              variants={textSpringAnimateFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               Chairperson Message
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
           </div>
-          <div className="chairpersonMsgContainer bg-[#FAF6E2] ">
+          <AnimatedDiv
+            className="chairpersonMsgContainer bg-[#FAF6E2] "
+            whileInView={{ opacity: 1, rotate: [0, -10, 10, -10, 10, 0] }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className=" grid lg:grid-cols-2 p-4">
               <div>
-                <h3
+                <AnimatedTitle
                   className={`text-[#007BFF] text-lg sm:text-xl font-bold mb-2 `}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   Mrs. RAJAB KASIAR
-                </h3>
-                <h4 className={`text-[#e6272d] text-base font-semibold mb-2`}>
+                </AnimatedTitle>
+                <AnimatedTitle
+                  className={`text-[#e6272d] text-base font-semibold mb-2`}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   Chairperson
-                </h4>
-                <p className="leading-8  text-[#1d1d1d]">
-                  “Education is the best gift that can be given to a child”
-                </p>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
-                  {" "}
+                </AnimatedTitle>
+                <AnimatedText
+                  className="leading-8  text-[#1d1d1d]"
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.5, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  &ldquo;Education is the best gift that can be given to a
+                  child&rdquo;
+                </AnimatedText>
+
+                <AnimatedText
+                  className={`  mt-3 leading-8  text-[#1d1d1d]`}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 2, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   At Appolo we provide an atmosphere to our students for
                   multifaceted development. The talents, skills and abilities of
                   students need to be identified, nurtured and encouraged so
@@ -104,14 +158,20 @@ export default function Home() {
                   devoted to prepare the individual for life, groom them to face
                   the challenges of tomorrow with confidence and encourage each
                   student to be socially relevant.
-                </p>
+                </AnimatedText>
               </div>
               <div className=" flex justify-center items-start pt-0 md:pt-10 px-2">
                 <div
-                  className="p-4 
+                  className="p-4 overflow-hidden
                "
                 >
-                  <div className="flex justify-stretch  ">
+                  <AnimatedDiv
+                    className="flex justify-stretch  "
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     <div className="   ">
                       <Image
                         src={rajab}
@@ -121,7 +181,8 @@ export default function Home() {
                       />
                     </div>
                     <div className="bg-[#348BC1] inline-block w-[20px] mt-8 mb-4"></div>
-                  </div>
+                  </AnimatedDiv>
+                  <div></div>
                 </div>
                 {/* <div
               id="image-container"
@@ -131,7 +192,7 @@ export default function Home() {
                 {/* </div> */}
               </div>
             </div>
-          </div>
+          </AnimatedDiv>
         </div>
       </section>
       <section
@@ -141,27 +202,61 @@ export default function Home() {
         <div className="px-4">
           {" "}
           <div className="mx-auto flex flex-col justify-center items-center ">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+            <AnimatedDiv
+              className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+              variants={textSpringAnimateFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               Principal Message
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
           </div>
-          <div className="principalMsgContainer bg-[#FAF6E2] ">
+          <AnimatedDiv
+            className="principalMsgContainer bg-[#FAF6E2] "
+            whileInView={{ opacity: 1, rotate: [0, -5, 5, -5, 5, 0] }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className=" grid lg:grid-cols-2 p-4">
               <div>
-                <h3
+                <AnimatedTitle
                   className={`text-[#007BFF] text-lg sm:text-xl font-bold mb-2 `}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   Ms. Sreelakshmi S.
-                </h3>
-                <h4 className={`text-[#e6272d] text-base font-semibold mb-2`}>
+                </AnimatedTitle>
+
+                <AnimatedTitle
+                  className={`text-[#e6272d] text-base font-semibold mb-2`}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   Principal, M.A., B.Ed
-                </h4>
-                <p className="leading-8  text-[#1d1d1d]">
-                  “Better than a thousand days of diligent study is one day with
-                  a great teacher.”
-                </p>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+                </AnimatedTitle>
+                <AnimatedText
+                  className="leading-8  text-[#1d1d1d]"
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.5, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  &ldquo;Better than a thousand days of diligent study is one
+                  day with a great teacher.&rdquo;
+                </AnimatedText>
+                <AnimatedText
+                  className={`  mt-3 leading-8  text-[#1d1d1d]`}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 2, type: "tween" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   {" "}
                   At Appolo, we believe that education cannot be limited merely
                   to textbooks and classrooms. It is our core belief that right
@@ -172,16 +267,21 @@ export default function Home() {
                   strive day in and day out to cater and understand the unique
                   needs of each of our students to bring out the best in their
                   interest.
-                </p>
+                </AnimatedText>
               </div>
               <div className=" flex justify-center items-start pt-0 md:pt-10 px-2">
                 <div
-                  className="p-4 
+                  className="p-4 overflow-hidden
                "
                 >
-                  <div className="flex justify-stretch  ">
+                  <AnimatedDiv
+                    className="flex justify-stretch  "
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     <div className="border-[5px] border-white">
-                      {" "}
                       <Image
                         src={sreelakshmi}
                         alt="pagination"
@@ -190,11 +290,11 @@ export default function Home() {
                       />
                     </div>
                     <div className="bg-[#348BC1] inline-block w-[20px] mt-8 mb-4"></div>
-                  </div>
+                  </AnimatedDiv>
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedDiv>
         </div>
       </section>
       <section
@@ -202,9 +302,15 @@ export default function Home() {
         className="py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]bg-[#F9F9F9] z-0"
       >
         <div className="mx-auto flex flex-col justify-center items-center my-4 px-4">
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+          <AnimatedDiv
+            className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+            variants={textSpringAnimateFromBelow10}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             Toppers
-          </div>
+          </AnimatedDiv>
           <div className="w-[100px] border-b-[4px] border-red-500"></div>
         </div>
         <div className="toppersContainer min-h-[400px] py-2 px-4">
@@ -218,10 +324,16 @@ export default function Home() {
       >
         <div className=" bg-[#25304ae7] py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px] w-full h-full">
           <div className="mx-auto flex flex-col justify-center items-center my-4 px-4">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-100 mb-4">
+            <AnimatedDiv
+              className="text-2xl md:text-4xl text-start font-bold text-gray-100 mb-4"
+              variants={textSpringAnimateFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               Students & Parents&nbsp;
               <span className="text-secondary-red1">Messages</span>
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[4px] border-red-500"></div>
           </div>
 
