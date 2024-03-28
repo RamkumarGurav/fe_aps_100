@@ -483,7 +483,7 @@ export default function FPageName() {
             laboratory teaching and experiments that encourage deep
             understanding in children. Children are able to retain the knowledge
             for longer when they are performing the experiments individually
-            through teacher’s guidelines. Students aregetting a first-hand
+            through teacher&apos;s guidelines. Students aregetting a first-hand
             learning experience by performing various experiments. Students are
             made to use the models and understand different scientific theories
             and concepts.. Anatomy models, physics science kits, and chemistry
@@ -547,7 +547,8 @@ export default function FPageName() {
             viewport={{ once: true, amount: 0 }}
             className={`leading-8 font-semibold  text-[#1d1d1d] mb-3`}
           >
-            "SPORTS NOT ONLY BUILD BETTER SPORTSMEN BUT ALSO BETTER PEOPLE"
+            &#x0022;SPORTS NOT ONLY BUILD BETTER SPORTSMEN BUT ALSO BETTER
+            PEOPLE&#x0022;
           </AnimatedText>
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
             <SportsModalContainer />

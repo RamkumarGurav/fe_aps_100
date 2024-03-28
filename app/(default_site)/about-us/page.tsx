@@ -86,7 +86,7 @@ export default function AUPageName() {
                   At Appolo, we look at education as an inviting and exciting
                   journey into the new world of intellectual, spiritual and
                   emotional learning. An educational system that engenders the
-                  development and growth of all five aspects of a child's
+                  development and growth of all five aspects of a child&apos;s
                   personality - that is the Physical, Cognitive, Aesthetic,
                   Emotional and Spiritual.
                 </AnimatedText>

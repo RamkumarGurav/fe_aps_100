@@ -25,7 +25,7 @@ export default function TMPageName() {
           </Link>
           <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
           <span className="font-medium text-white text-xs ">
-            Trustee's Message
+            Trustee&apos;s Message
           </span>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default function TMPageName() {
               viewport={{ once: true, amount: 0 }}
               className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
             >
-              Trustee's &nbsp;
+              Trustee&apos;s &nbsp;
               <span className="text-secondary-red1">Message</span>
             </AnimatedDiv>
             <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
