@@ -12,7 +12,43 @@ import SportsModalContainer from "./SportsModalContainer";
 // In your component where you have the Link tag
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-export default function PageName() {
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import {
+  springAnimate300pxFromBelow10,
+  springAnimate70pxFromBelow16,
+} from "@/utils/variants";
+import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
+
+const boxVariant = {
+  hidden: {
+    opacity: 0,
+    y: "100px", //move out of the site
+  },
+  visible: {
+    opacity: 1,
+    y: 0, // bring it back to nrmal
+    transition: {
+      when: "beforeChildren", //use this instead of delay
+      staggerChildren: 0.2, //apply stagger on the parent tag
+    },
+  },
+};
+
+const listVariant = {
+  hidden: {
+    opacity: 0,
+    y: "150px", //move out of the site
+  },
+  visible: {
+    opacity: 1,
+    y: 1, //move out of the site
+    transition: {
+      duration: 1,
+      type: "tween",
+    },
+  },
+};
+export default function FPageName() {
   const NAVBAR_HEIGHT = 280; // Adjust this value according to your actual navbar height
 
   const pathname = usePathname();
@@ -28,7 +64,7 @@ export default function PageName() {
     }
   }, [pathname, params]);
   return (
-    <div className={`${font.className}  bg-[#FDFBF0]`}>
+    <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -48,225 +84,272 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]   `}
       >
         <div className={` p-4 mx-auto   `}>
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
-            Our&nbsp;
-            <span className="text-secondary-red1">Facilities</span>
-          </div>
-          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 120, duration: 1 }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+              Our&nbsp;
+              <span className="text-secondary-red1">Facilities</span>
+            </div>
+            <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          </AnimatedDiv>
 
           <div className="">
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              <Link
-                href={"#infrastuctureSection"}
-                className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
+            <AnimatedDiv
+              variants={boxVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true, amount: 0 }}
+              className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+            >
+              <AnimatedDiv
+                variants={listVariant}
+                viewport={{ once: true, amount: 0 }}
               >
-                <div className="flex justify-center items-center bg-transparent relative  mb-4">
-                  <div
-                    className="relative rounded-full  w-[145px] h-[145px] 
-                  bg-[#FDFBF0]  z-[99] "
-                  >
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
-                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
-                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-
-                    <div
-                      className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
-                    ></div>
-
-                    <div
-                      className={`${styles.facilityIcon1} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                  </div>
-                </div>
-                <h4
-                  className={`text-center font-semibold text-base text-gray-800`}
+                <Link
+                  href={"#infrastuctureSection"}
+                  className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
-                  Infrastructure
-                </h4>
-              </Link>
-              <Link
-                href={"#knowledgeCenterSection"}
-                className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
+                  <div className="flex justify-center items-center bg-transparent relative  mb-4">
+                    <div
+                      className="relative rounded-full  w-[145px] h-[145px] 
+                  bg-[#FDFBF0]  z-[99] "
+                    >
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
+                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
+                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+
+                      <div
+                        className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
+                      ></div>
+
+                      <div
+                        className={`${styles.facilityIcon1} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
+                      ></div>
+                    </div>
+                  </div>
+                  <h4
+                    className={`text-center font-semibold text-base text-gray-800`}
+                  >
+                    Infrastructure
+                  </h4>
+                </Link>
+              </AnimatedDiv>
+              <AnimatedDiv
+                variants={listVariant}
+                viewport={{ once: true, amount: 0 }}
               >
-                <div className="flex justify-center items-center bg-transparent relative  mb-4">
-                  <div
-                    className="relative rounded-full  w-[145px] h-[145px] 
-                  bg-[#FDFBF0]  z-[99] "
-                  >
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
-                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
-                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-
-                    <div
-                      className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
-                    ></div>
-
-                    <div
-                      className={`${styles.facilityIcon2} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                  </div>
-                </div>
-                <h4
-                  className={`text-center font-semibold text-base text-gray-800`}
+                <Link
+                  href={"#knowledgeCenterSection"}
+                  className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
-                  Knowledge centre
-                </h4>
-              </Link>
-              <Link
-                href={"#scienceLabSection"}
-                className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
+                  <div className="flex justify-center items-center bg-transparent relative  mb-4">
+                    <div
+                      className="relative rounded-full  w-[145px] h-[145px] 
+                  bg-[#FDFBF0]  z-[99] "
+                    >
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
+                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
+                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+
+                      <div
+                        className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
+                      ></div>
+
+                      <div
+                        className={`${styles.facilityIcon2} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
+                      ></div>
+                    </div>
+                  </div>
+                  <h4
+                    className={`text-center font-semibold text-base text-gray-800`}
+                  >
+                    Knowledge centre
+                  </h4>
+                </Link>
+              </AnimatedDiv>
+
+              <AnimatedDiv
+                variants={listVariant}
+                viewport={{ once: true, amount: 0 }}
               >
-                <div className="flex justify-center items-center bg-transparent relative  mb-4">
-                  <div
-                    className="relative rounded-full  w-[145px] h-[145px] 
-                  bg-[#FDFBF0]  z-[99] "
-                  >
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
-                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
-                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-
-                    <div
-                      className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
-                    ></div>
-
-                    <div
-                      className={`${styles.facilityIcon3} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                  </div>
-                </div>
-                <h4
-                  className={`text-center font-semibold text-base text-gray-800`}
+                <Link
+                  href={"#scienceLabSection"}
+                  className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
-                  Science Lab
-                </h4>
-              </Link>
-              <Link
-                href={"#"}
-                className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
+                  <div className="flex justify-center items-center bg-transparent relative  mb-4">
+                    <div
+                      className="relative rounded-full  w-[145px] h-[145px] 
+                  bg-[#FDFBF0]  z-[99] "
+                    >
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
+                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
+                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+
+                      <div
+                        className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
+                      ></div>
+
+                      <div
+                        className={`${styles.facilityIcon3} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
+                      ></div>
+                    </div>
+                  </div>
+                  <h4
+                    className={`text-center font-semibold text-base text-gray-800`}
+                  >
+                    Science Lab
+                  </h4>
+                </Link>
+              </AnimatedDiv>
+
+              <AnimatedDiv
+                variants={listVariant}
+                viewport={{ once: true, amount: 0 }}
               >
-                <div className="flex justify-center items-center bg-transparent relative  mb-4">
-                  <div
-                    className="relative rounded-full  w-[145px] h-[145px] 
-                  bg-[#FDFBF0]  z-[99] "
-                  >
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
-                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
-                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-
-                    <div
-                      className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
-                    ></div>
-
-                    <div
-                      className={`${styles.facilityIcon4} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                  </div>
-                </div>
-                <h4
-                  className={`text-center font-semibold text-base text-gray-800`}
+                <Link
+                  href={"#"}
+                  className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
-                  Computer Lab
-                </h4>
-              </Link>
-              <Link
-                href={"#sportsSection"}
-                className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
+                  <div className="flex justify-center items-center bg-transparent relative  mb-4">
+                    <div
+                      className="relative rounded-full  w-[145px] h-[145px] 
+                  bg-[#FDFBF0]  z-[99] "
+                    >
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
+                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
+                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+
+                      <div
+                        className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
+                      ></div>
+
+                      <div
+                        className={`${styles.facilityIcon4} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
+                      ></div>
+                    </div>
+                  </div>
+                  <h4
+                    className={`text-center font-semibold text-base text-gray-800`}
+                  >
+                    Computer Lab
+                  </h4>
+                </Link>
+              </AnimatedDiv>
+
+              <AnimatedDiv
+                variants={listVariant}
+                viewport={{ once: true, amount: 0 }}
               >
-                <div className="flex justify-center items-center bg-transparent relative  mb-4">
-                  <div
-                    className="relative rounded-full  w-[145px] h-[145px] 
-                  bg-[#FDFBF0]  z-[99] "
-                  >
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
-                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
-                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-
-                    <div
-                      className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
-                    ></div>
-
-                    <div
-                      className={`${styles.facilityIcon5} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                  </div>
-                </div>
-                <h4
-                  className={`text-center font-semibold text-base text-gray-800`}
+                <Link
+                  href={"#sportsSection"}
+                  className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
-                  Sports
-                </h4>
-              </Link>
-              <Link
-                href={"#transportSection"}
-                className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
+                  <div className="flex justify-center items-center bg-transparent relative  mb-4">
+                    <div
+                      className="relative rounded-full  w-[145px] h-[145px] 
+                  bg-[#FDFBF0]  z-[99] "
+                    >
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
+                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
+                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+
+                      <div
+                        className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
+                      ></div>
+
+                      <div
+                        className={`${styles.facilityIcon5} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
+                      ></div>
+                    </div>
+                  </div>
+                  <h4
+                    className={`text-center font-semibold text-base text-gray-800`}
+                  >
+                    Sports
+                  </h4>
+                </Link>
+              </AnimatedDiv>
+
+              <AnimatedDiv
+                variants={listVariant}
+                viewport={{ once: true, amount: 0 }}
               >
-                <div className="flex justify-center items-center bg-transparent relative  mb-4">
-                  <div
-                    className="relative rounded-full  w-[145px] h-[145px] 
-                  bg-[#FDFBF0]  z-[99] "
-                  >
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
-                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-                    <div
-                      className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
-                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
-                    ></div>
-
-                    <div
-                      className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
-                    ></div>
-
-                    <div
-                      className={`${styles.facilityIcon6} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
-              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                  </div>
-                </div>
-                <h4
-                  className={`text-center font-semibold text-base text-gray-800`}
+                <Link
+                  href={"#transportSection"}
+                  className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
-                  Transport
-                </h4>
-              </Link>
-            </div>
+                  <div className="flex justify-center items-center bg-transparent relative  mb-4">
+                    <div
+                      className="relative rounded-full  w-[145px] h-[145px] 
+                  bg-[#FDFBF0]  z-[99] "
+                    >
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer1} absolute bottom-0
+                   w-[145px] h-[145px] z-[2] left-0 rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+                      <div
+                        className={`${styles.facilitiesCardBgImageContainer2} absolute bottom-0
+                   w-[145px] h-[0px]  left-0  rounded-full bg-contain bg-no-repeat bg-center`}
+                      ></div>
+
+                      <div
+                        className="shadowContainer absolute w-[90px] h-[87px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] bg-transparent rounded-full z-[1] shadow-admissionCard-icon"
+                      ></div>
+
+                      <div
+                        className={`${styles.facilityIcon6} absolute w-[70px] h-[70px] top-[50%] left-[50%] translate-x-[-50%]
+              translate-y-[-50%] z-[10] bg-red-400/0 bg-cover bg-center bg-no-repeat`}
+                      ></div>
+                    </div>
+                  </div>
+                  <h4
+                    className={`text-center font-semibold text-base text-gray-800`}
+                  >
+                    Transport
+                  </h4>
+                </Link>
+              </AnimatedDiv>
+            </AnimatedDiv>
           </div>
         </div>
       </section>
@@ -281,18 +364,31 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
       >
         <div className={` px-4 mx-auto `}>
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
-            Our&nbsp;
-            <span className="text-secondary-red1">Infrastructure</span>
-          </div>
-          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
-          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 120, duration: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+              Our&nbsp;
+              <span className="text-secondary-red1">Infrastructure</span>
+            </div>
+            <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          </AnimatedDiv>
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8  text-[#1d1d1d] mb-3`}
+          >
             Appolo is renowned for its education and holistic development that
             it renders to its students. It has always been catering to the needs
             of its budding students by providing an authentic environment and a
             friendly atmosphere for physical, social and mental development of
             child
-          </p>
+          </AnimatedText>
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
             <InfraGalleryModalContainer />
           </div>
@@ -308,16 +404,36 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
       >
         <div className={` px-4 mx-auto `}>
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
-            Knowledge&nbsp;
-            <span className="text-secondary-red1">Center</span>
-          </div>
-          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
-          <strong className={`leading-8   text-[#1d1d1d] mb-3`}>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 120, duration: 1 }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+              Knowledge&nbsp;
+              <span className="text-secondary-red1">Center</span>
+            </div>
+            <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          </AnimatedDiv>
+
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8 font-semibold  text-[#1d1d1d] mb-3`}
+          >
             &#x0022;NEVER STOP LEARNING, BECAUSE LIFE NEVER STOPS
             TEACHING&#x0022;
-          </strong>
-          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+          </AnimatedText>
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8  text-[#1d1d1d] mb-3`}
+          >
             Our school library serves as the center and coordinating agency to
             facilitate, support the students learning. The goal is to ensure all
             the members of the school community to have access to books and
@@ -327,7 +443,7 @@ export default function PageName() {
             to the business and management related digital resources. Students
             can utilize these services for their classroom –related work for
             further research into their areas of interest.
-          </p>
+          </AnimatedText>
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
             <KCModalContainer />
           </div>
@@ -343,13 +459,26 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
       >
         <div className={` px-4 mx-auto `}>
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
-            Science&nbsp;
-            <span className="text-secondary-red1">Lab</span>
-          </div>
-          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 120, duration: 1 }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+              Science&nbsp;
+              <span className="text-secondary-red1">Lab</span>
+            </div>
+            <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          </AnimatedDiv>
 
-          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8  text-[#1d1d1d] mb-3`}
+          >
             Science lab is equipped with all the required materials to conduct
             laboratory teaching and experiments that encourage deep
             understanding in children. Children are able to retain the knowledge
@@ -361,7 +490,7 @@ export default function PageName() {
             science kits for instance make it easy to understand the otherwise
             complex theories of science. Science is made very interesting and
             effective for students in our institution.
-          </p>
+          </AnimatedText>
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
             <ScienceLabModalContainer />
           </div>
@@ -377,12 +506,25 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
       >
         <div className={` px-4 mx-auto `}>
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
-            Sports&nbsp;
-          </div>
-          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 120, duration: 1 }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+              Sports&nbsp;
+            </div>
+            <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          </AnimatedDiv>
 
-          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8  text-[#1d1d1d] mb-3`}
+          >
             SPORTS teaches us character, it teaches us how to play by rules, it
             teaches us to know what it feels like to win and lose, it teaches us
             about life. The best part of any game is the opportunity to play.
@@ -397,10 +539,16 @@ export default function PageName() {
             and around 600+ Apolities were a part of our State festival Kannada
             Rajyothsava which added an extra feather of dignity to our APOLLO
             FAMILY
-          </p>
-          <strong className={`leading-8   text-[#1d1d1d] mb-3`}>
+          </AnimatedText>
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8 font-semibold  text-[#1d1d1d] mb-3`}
+          >
             "SPORTS NOT ONLY BUILD BETTER SPORTSMEN BUT ALSO BETTER PEOPLE"
-          </strong>
+          </AnimatedText>
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
             <SportsModalContainer />
           </div>
@@ -416,11 +564,25 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]`}
       >
         <div className={` px-4 mx-auto `}>
-          <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
-            Transport&nbsp;
-          </div>
-          <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
-          <p className={`leading-8  text-[#1d1d1d] mb-3`}>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 120, duration: 1 }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-2">
+              Transport&nbsp;
+            </div>
+            <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
+          </AnimatedDiv>
+
+          <AnimatedText
+            variants={springAnimate70pxFromBelow16}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className={`leading-8  text-[#1d1d1d] mb-3`}
+          >
             Transport – The need for safe passage of each child to school and
             back home is of paramount importance to us. To ensure safe travel
             the school has its own fleet of school buses designed as per
@@ -431,7 +593,7 @@ export default function PageName() {
             terms of service and better communication in case of emergencies.
             Besides ensuring the implementation of the safety norms, all staff
             on the bus is well trained in first aid and emergency management.
-          </p>
+          </AnimatedText>
 
           <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start">
             <TransportModalContainer />

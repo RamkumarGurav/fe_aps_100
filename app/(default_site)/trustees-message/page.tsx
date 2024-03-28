@@ -5,10 +5,12 @@ import komalImg from "@/public/komal.jpg";
 import nabeelaImg from "@/public/nabeela.jpg";
 import fathimaImg from "@/public/fathima.jpg";
 import Link from "next/link";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import { springAnimate70pxFromBelow10 } from "@/utils/variants";
 
-export default function PageName() {
+export default function TMPageName() {
   return (
-    <div className={` ${font.className} bg-[#FDFBF0]`}>
+    <div className={` ${font.className} bg-[#FDFBF0] overflow-hidden`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]  sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -33,13 +35,25 @@ export default function PageName() {
       >
         <div className="px-4 ">
           <div className="mx-auto ">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+            <AnimatedDiv
+              variants={springAnimate70pxFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0 }}
+              className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+            >
               Trustee's &nbsp;
               <span className="text-secondary-red1">Message</span>
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
           </div>
-          <div className="trusteesMsgContainer p-4 mb-10 bg-[#FAF6E2] pb-4">
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "-50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2, type: "spring" }}
+            viewport={{ once: true, amount: 0 }}
+            className="trusteesMsgContainer p-4 mb-10 bg-[#FAF6E2] pb-4"
+          >
             <div className=" grid md:grid-cols-4 p-4 pb-0">
               <div className="left md:col-span-3">
                 <h3
@@ -78,8 +92,14 @@ export default function PageName() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="trusteesMsgContainer p-4 mb-10 bg-[#FAF6E2] pb-4">
+          </AnimatedDiv>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2, type: "spring" }}
+            viewport={{ once: true, amount: 0 }}
+            className="trusteesMsgContainer p-4 mb-10 bg-[#FAF6E2] pb-4"
+          >
             <div className=" grid md:grid-cols-4 p-4 pb-0">
               <div className="left md:col-span-3">
                 <h3
@@ -117,8 +137,14 @@ export default function PageName() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="trusteesMsgContainer p-4 mb-10 bg-[#FAF6E2] pb-4">
+          </AnimatedDiv>
+          <AnimatedDiv
+            initial={{ opacity: 0, x: "-50vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2, type: "spring" }}
+            viewport={{ once: true, amount: 0 }}
+            className="trusteesMsgContainer p-4 mb-10 bg-[#FAF6E2] pb-4"
+          >
             <div className=" grid md:grid-cols-4 p-4 pb-0">
               <div className="left md:col-span-3">
                 <h3
@@ -156,7 +182,7 @@ export default function PageName() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedDiv>
         </div>
       </section>
     </div>

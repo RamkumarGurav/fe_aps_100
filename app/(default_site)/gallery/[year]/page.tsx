@@ -4,6 +4,7 @@ import { getImagesWithSrcAndBlurDataUrlArr } from "@/utils/base64Converters";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
 import GalleryCard from "../../../../components/Gallery/GalleryCard";
 import { Mulish } from "next/font/google";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 
 const font = Mulish({ weight: "400", subsets: ["latin"] });
 
@@ -48,7 +49,7 @@ export default async function Gallery({
   // console.log(albumCoversBlurDataUrl);
 
   return (
-    <div className="w-[100%] ">
+    <div className="w-[100%] overflow-hidden">
       <div
         className={`gallery-banner flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -67,11 +68,19 @@ export default async function Gallery({
       </div>
 
       <section id="albums" className="albumsShell py-20 px-2 sm:px-12 ">
-        <div className="text-lg sm:text-xl md:text-2xl xl:text-4xl text-start font-bold text-gray-900 mb-4">
-          Gallery{" "}
-          <span className="text-secondary-red1">{yearData.fiscal_year}</span>
-        </div>
-        <div className="w-[100px] border-b-[3px] border-red-500"></div>
+        <AnimatedDiv
+          initial={{ opacity: 0, x: "50vw" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ type: "spring", stiffness: 120, duration: 1 }}
+          viewport={{ once: true, amount: 0 }}
+        >
+          <div className="text-lg sm:text-xl md:text-2xl xl:text-4xl text-start font-bold text-gray-900 mb-4">
+            Gallery{" "}
+            <span className="text-secondary-red1">{yearData.fiscal_year}</span>
+          </div>
+          <div className="w-[100px] border-b-[3px] border-red-500"></div>
+        </AnimatedDiv>
+
         <div className=" mt-4   grid md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-8 place-content-center place-items-start ">
           {albumCoversBlurDataUrl.map(
             (item: { [key: string]: any }, i: number) => (

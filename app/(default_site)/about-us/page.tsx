@@ -4,17 +4,17 @@ import AbouApsImg from "../../../public/abt-img.jpg";
 import Image from "next/image";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import {
-  textSpringAnimateFromBelow10,
-  textTweenAnimateFromLeft10,
-  textTweenAnimateFromLeft13,
-  textTweenAnimateFromLeft16,
-  textTweenAnimateFromRight10,
+  springAnimateFromBelow10,
+  tweenAnimateFromLeft10,
+  tweenAnimateFromLeft13,
+  tweenAnimateFromLeft16,
+  tweenAnimateFromRight10,
 } from "@/utils/variants";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 const font = Lato({ weight: "400", subsets: ["latin"] });
-export default function PageName() {
+export default function AUPageName() {
   return (
-    <div className={`${font.className}  relative z-[1]`}>
+    <div className={`${font.className}  relative z-[1] overflow-hidden`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -42,7 +42,7 @@ export default function PageName() {
                 <div className="headingContainer mb-6">
                   <AnimatedDiv
                     className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
-                    variants={textSpringAnimateFromBelow10}
+                    variants={springAnimateFromBelow10}
                     initial={"offscreen"}
                     whileInView={"onscreen"}
                     viewport={{ once: true, amount: 0.2 }}
@@ -54,7 +54,7 @@ export default function PageName() {
                 </div>
                 <AnimatedText
                   className={`  mt-3 leading-8  text-[#1d1d1d]`}
-                  variants={textTweenAnimateFromLeft10}
+                  variants={tweenAnimateFromLeft10}
                   initial={"offscreen"}
                   whileInView={"onscreen"}
                   viewport={{ once: true, amount: 0.2 }}
@@ -78,7 +78,7 @@ export default function PageName() {
                 </AnimatedText>
                 <AnimatedText
                   className={`  mt-3 leading-8  text-[#1d1d1d]`}
-                  variants={textTweenAnimateFromLeft13}
+                  variants={tweenAnimateFromLeft13}
                   initial={"offscreen"}
                   whileInView={"onscreen"}
                   viewport={{ once: true, amount: 0.2 }}
@@ -98,7 +98,7 @@ export default function PageName() {
                 </div>
                 <AnimatedDiv
                   className=" relative flex justify-center items-start pt-4 mt-4  z-[99]"
-                  variants={textTweenAnimateFromRight10}
+                  variants={tweenAnimateFromRight10}
                   initial={"offscreen"}
                   whileInView={"onscreen"}
                   viewport={{ once: true, amount: 0.2 }}
@@ -116,7 +116,7 @@ export default function PageName() {
             </div>
             <AnimatedText
               className={`  mt-3 leading-8  text-[#1d1d1d]`}
-              variants={textTweenAnimateFromLeft16}
+              variants={tweenAnimateFromLeft16}
               initial={"offscreen"}
               whileInView={"onscreen"}
               viewport={{ once: true, amount: 0.2 }}

@@ -8,10 +8,13 @@ import {
   cocurricularActivitiesDetails,
   curriculumDetails,
 } from "@/utils/displayData";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import { springAnimate70pxFromBelow10 } from "@/utils/variants";
+import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 
-export default function PageName() {
+export default function CCAPageName() {
   return (
-    <div className={`${font.className}  bg-[#FDFBF0]`}>
+    <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -33,51 +36,85 @@ export default function PageName() {
       <section className="py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]  ">
         <div className="px-4 ">
           <div className="mx-auto ">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+            <AnimatedDiv
+              variants={springAnimate70pxFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0 }}
+              className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+            >
               {
                 cocurricularActivitiesDetails.cocurricularActivitiesData
                   .mainHeading
               }
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[3px] border-red-700 mb-4"></div>
           </div>
           <div className="  pb-4">
             <div className=" lg:grid lg:grid-cols-2 p-4 pb-0">
               <div className="left">
                 <div>
-                  <p className={`text-base my-4 font-semibold text-gray-900`}>
+                  <AnimatedText
+                    variants={springAnimate70pxFromBelow10}
+                    initial={"offscreen"}
+                    whileInView={"onscreen"}
+                    viewport={{ once: true, amount: 0 }}
+                    className={`text-base my-4 font-semibold text-gray-900`}
+                  >
                     {
                       cocurricularActivitiesDetails.cocurricularActivitiesData
                         .subHeading1
                     }
-                  </p>
+                  </AnimatedText>
                 </div>
                 {cocurricularActivitiesDetails.cocurricularActivitiesData.list1.map(
                   (item: string, i: number) => (
-                    <div key={i} className=" flex gap-2 mb-3">
+                    <AnimatedDiv
+                      key={i}
+                      initial={{ opacity: 0, x: "20vw" }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: i * 0.1,
+                        duration: 1,
+                        type: "tween",
+                      }}
+                      viewport={{ once: true, amount: 0 }}
+                      className=" flex gap-2 mb-3"
+                    >
                       <span className="flex justify-center items-center pb-[1px]">
                         <FaRegHandPointRight className="text-red-700 text-[15px] " />
                       </span>
                       <span className={`text-gray-800  leading-8`}>{item}</span>
-                    </div>
+                    </AnimatedDiv>
                   )
                 )}
 
-                <div>
+                <AnimatedDiv
+                  variants={springAnimate70pxFromBelow10}
+                  initial={"offscreen"}
+                  whileInView={"onscreen"}
+                  viewport={{ once: true, amount: 0 }}
+                >
                   <p className={`text-base my-4 font-medium text-gray-700`}>
                     {
                       cocurricularActivitiesDetails.cocurricularActivitiesData
                         .subHeading2
                     }
                   </p>
-                </div>
+                </AnimatedDiv>
               </div>
               <div className="right flex  justify-center items-start pt-0  px-2">
                 <div
                   className="p-4 
                "
                 >
-                  <div className="flex justify-stretch  p-0 pb-0 ">
+                  <AnimatedDiv
+                    initial={{ opacity: 0, scale: 0, rotate: 90 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 2, type: "spring" }}
+                    viewport={{ once: true, amount: 0 }}
+                    className="flex justify-stretch  p-0 pb-0 "
+                  >
                     <div className="   ">
                       <Image
                         src={knowledgeCenter2}
@@ -87,7 +124,7 @@ export default function PageName() {
                       />
                     </div>
                     <div className="bg-[#348BC1] inline-block w-[20px] mt-8 mb-4"></div>
-                  </div>
+                  </AnimatedDiv>
                 </div>
               </div>
             </div>
@@ -104,12 +141,18 @@ export default function PageName() {
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]   `}
       >
         <div className={` p-4 mx-auto bg-[#FAF6E2]  `}>
-          <div className="text-xl md:text-3xl text-start font-bold text-gray-900 mb-4">
+          <AnimatedDiv
+            variants={springAnimate70pxFromBelow10}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            viewport={{ once: true, amount: 0 }}
+            className="text-xl md:text-3xl text-start font-bold text-gray-900 mb-4"
+          >
             {
               cocurricularActivitiesDetails.listOfCocurricularActivitiesData
                 .mainHeading
             }
-          </div>
+          </AnimatedDiv>
           <div className="w-[100px] border-b-[3px] border-red-700 mb-4"></div>
           <div className="grid lg:grid-cols-3 p-4 gap-4">
             {cocurricularActivitiesDetails.listOfCocurricularActivitiesData.lists.map(
@@ -117,14 +160,25 @@ export default function PageName() {
                 <div key={i} className="box1">
                   <div className="mx-auto ">
                     {item.map((sub: string, j: number) => (
-                      <div key={j} className=" flex gap-2 mb-3">
-                        <span className="flex justify-center items-center pb-[1px]">
+                      <AnimatedDiv
+                        initial={{ opacity: 0, x: "20vw" }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: i * 0.1,
+                          duration: 1,
+                          type: "tween",
+                        }}
+                        viewport={{ once: true, amount: 0 }}
+                        key={j}
+                        className=" flex gap-2 mb-3"
+                      >
+                        <span className="flex justify-center items-start pt-[8px]">
                           <FaRegHandPointRight className="text-red-700 text-[15px]  " />
                         </span>
                         <span className={`text-gray-800  leading-8`}>
                           {sub}
                         </span>
-                      </div>
+                      </AnimatedDiv>
                     ))}
                   </div>
                 </div>

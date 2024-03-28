@@ -3,10 +3,16 @@ import { Lato } from "next/font/google";
 const font = Lato({ weight: "400", subsets: ["latin"] });
 import vc from "@/public/vc.jpg";
 import Link from "next/link";
+import {
+  easeInOutAnimate2timesShake10,
+  springAnimate70pxFromBelow10,
+} from "@/utils/variants";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 
-export default function PageName() {
+export default function VCPageName() {
   return (
-    <div className="bg-[#FDFBF0]">
+    <div className="bg-[#FDFBF0] overflow-hidden">
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -31,27 +37,54 @@ export default function PageName() {
       >
         <div className="px-4">
           <div className="mx-auto ">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+            <AnimatedDiv
+              className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+              variants={springAnimate70pxFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+            >
               Vice Chairperson &nbsp;
               <span className="text-secondary-red1">Message</span>
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[4px] border-red-500 mb-4"></div>
           </div>
           <div className="chairpersonMsgContainer bg-[#FAF6E2] ">
             <div className=" grid lg:grid-cols-2 p-4">
               <div>
-                <h3
+                <AnimatedText
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, type: "tween" }}
+                  viewport={{ once: true, amount: 0 }}
                   className={`text-[#007BFF] text-lg sm:text-xl font-bold mb-2 `}
                 >
                   Mr. SULTAN KASIAR
-                </h3>
-                <h4 className={`text-[#e6272d] text-base font-semibold mb-2`}>
+                </AnimatedText>
+                <AnimatedText
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.2, type: "tween" }}
+                  viewport={{ once: true, amount: 0 }}
+                  className={`text-[#e6272d] text-base font-semibold mb-2`}
+                >
                   Vice Chairperson
-                </h4>
-                <p className="leading-8  text-[#1d1d1d]">
+                </AnimatedText>
+                <AnimatedText
+                  className="leading-8  text-[#1d1d1d]"
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.4, type: "tween" }}
+                  viewport={{ once: true, amount: 0 }}
+                >
                   &ldquo;Welcome to the Appolo family!&rdquo;
-                </p>
-                <p className={`  mt-3 leading-8  text-[#1d1d1d]`}>
+                </AnimatedText>
+                <AnimatedText
+                  className={`  mt-3 leading-8  text-[#1d1d1d]`}
+                  initial={{ opacity: 0, x: "-20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.6, type: "tween" }}
+                  viewport={{ once: true, amount: 0 }}
+                >
                   I take immense pleasure in introducing to Appolo public
                   school. We impart quality education to the children. The
                   school symbolises knowledge, competition, intellect and love.
@@ -63,14 +96,20 @@ export default function PageName() {
                   contributing to the society, of which he/she forms an integral
                   part. The learning process continues until the last breath.
                   Start your journey with us.
-                </p>
+                </AnimatedText>
               </div>
               <div className=" flex justify-center items-start pt-0 md:pt-10 px-2">
                 <div
                   className="p-4 
                "
                 >
-                  <div className="flex justify-stretch  ">
+                  <AnimatedDiv
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0 }}
+                    className="flex justify-stretch  "
+                  >
                     <div className="   ">
                       <Image
                         src={vc}
@@ -80,7 +119,7 @@ export default function PageName() {
                       />
                     </div>
                     <div className="bg-[#348BC1] inline-block w-[20px] mt-8 mb-4"></div>
-                  </div>
+                  </AnimatedDiv>
                 </div>
                 {/* <div
               id="image-container"

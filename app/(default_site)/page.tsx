@@ -13,13 +13,17 @@ import MsgsCarousel from "@/components/Carousel/MsgsCarousel";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 import AnimatedTitle from "@/components/reusable/animated-elements/AnimatedDiv";
-import { textSpringAnimateFromBelow10 } from "@/utils/variants";
+import {
+  easeInOutAnimate2timesShake10,
+  springAnimateFromBelow10,
+  tweenAnimate100pxFromBelow10,
+} from "@/utils/variants";
 
 export default function Home() {
   const hereSlides = [1, 2, 3, 4];
   return (
     <div
-      className={`min-h-[500px] w-[100%] bg-[#FCF9F1] ${font.className} font-mono`}
+      className={`min-h-[500px] w-[100%] bg-[#FCF9F1] ${font.className} font-mono overflow-hidden`}
     >
       <section className="z-0">
         <HomeHeroCarousel />
@@ -34,7 +38,7 @@ export default function Home() {
             <div className="">
               <AnimatedDiv
                 className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
-                variants={textSpringAnimateFromBelow10}
+                variants={springAnimateFromBelow10}
                 initial={"offscreen"}
                 whileInView={"onscreen"}
                 viewport={{ once: true, amount: 0.2 }}
@@ -48,9 +52,9 @@ export default function Home() {
               <div className="w-[100px] border-b-[4px] border-red-500 "></div>
               <AnimatedText
                 className={`  mt-3 leading-8  text-[#1d1d1d]`}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, type: "tween" }}
+                variants={tweenAnimate100pxFromBelow10}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
                 viewport={{ once: true, amount: 0.2 }}
               >
                 {" "}
@@ -96,7 +100,7 @@ export default function Home() {
           <div className="mx-auto flex flex-col justify-center items-center ">
             <AnimatedDiv
               className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
-              variants={textSpringAnimateFromBelow10}
+              variants={springAnimateFromBelow10}
               initial={"offscreen"}
               whileInView={"onscreen"}
               viewport={{ once: true, amount: 0.2 }}
@@ -107,8 +111,8 @@ export default function Home() {
           </div>
           <AnimatedDiv
             className="chairpersonMsgContainer bg-[#FAF6E2] "
-            whileInView={{ opacity: 1, rotate: [0, -10, 10, -10, 10, 0] }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+            variants={easeInOutAnimate2timesShake10}
+            whileInView={"onscreen"}
             viewport={{ once: true, amount: 0.2 }}
           >
             <div className=" grid lg:grid-cols-2 p-4">
@@ -204,7 +208,7 @@ export default function Home() {
           <div className="mx-auto flex flex-col justify-center items-center ">
             <AnimatedDiv
               className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
-              variants={textSpringAnimateFromBelow10}
+              variants={springAnimateFromBelow10}
               initial={"offscreen"}
               whileInView={"onscreen"}
               viewport={{ once: true, amount: 0.2 }}
@@ -215,8 +219,8 @@ export default function Home() {
           </div>
           <AnimatedDiv
             className="principalMsgContainer bg-[#FAF6E2] "
-            whileInView={{ opacity: 1, rotate: [0, -5, 5, -5, 5, 0] }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+            variants={easeInOutAnimate2timesShake10}
+            whileInView={"onscreen"}
             viewport={{ once: true, amount: 0.2 }}
           >
             <div className=" grid lg:grid-cols-2 p-4">
@@ -304,7 +308,7 @@ export default function Home() {
         <div className="mx-auto flex flex-col justify-center items-center my-4 px-4">
           <AnimatedDiv
             className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
-            variants={textSpringAnimateFromBelow10}
+            variants={springAnimateFromBelow10}
             initial={"offscreen"}
             whileInView={"onscreen"}
             viewport={{ once: true, amount: 0.2 }}
@@ -326,7 +330,7 @@ export default function Home() {
           <div className="mx-auto flex flex-col justify-center items-center my-4 px-4">
             <AnimatedDiv
               className="text-2xl md:text-4xl text-start font-bold text-gray-100 mb-4"
-              variants={textSpringAnimateFromBelow10}
+              variants={springAnimateFromBelow10}
               initial={"offscreen"}
               whileInView={"onscreen"}
               viewport={{ once: true, amount: 0.2 }}

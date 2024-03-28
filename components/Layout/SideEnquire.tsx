@@ -13,9 +13,7 @@ export default function SideEnquire({
   const handleOpen = () => setOpen(!open);
 
   return (
-    <div
-      className={`font-sans ${font.className} text-sm text-white  font-semibold relative z-[999]`}
-    >
+    <div className={`  text-sm text-white  font-semibold relative z-[999]`}>
       <div
         className={` visible fixed bottom-0 left-0 right-0 w-full sm:hidden  `}
       >
@@ -26,7 +24,7 @@ export default function SideEnquire({
           }}
         >
           <span
-            className={`font-sans ${font.className} text-sm text-white  font-semibold grid place-content-center font-sans `}
+            className={`  text-sm text-white  font-semibold grid place-content-center font-sans `}
           >
             Admissions Open {admissionYear}
           </span>

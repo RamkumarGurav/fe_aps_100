@@ -4,9 +4,9 @@ import { MdEmail } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 const font = Poppins({ weight: "400", subsets: ["latin"] });
-export default function PageName() {
+export default function CUPageName() {
   return (
-    <div className={`${font.className} bg-[#F9F9F9]`}>
+    <div className={`${font.className} bg-[#F9F9F9] overflow-hidden`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}

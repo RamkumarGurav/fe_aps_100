@@ -7,9 +7,19 @@ import Image from "next/image";
 import EnquiryImg from "@/public/survey-1.png";
 import Link from "next/link";
 import "./style.module.css";
+import {
+  springAnimate100perFromBelow10,
+  springAnimate300pxFromBelow10,
+  springAnimate300pxFromBelow13,
+  springAnimate70pxFromBelow10,
+  tweenAnimate100pxFromBelow10,
+} from "@/utils/variants";
+import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import { docsRequired } from "@/utils/displayData";
+import AnimatedButton from "@/components/reusable/animated-elements/AnimatedButton";
 const font = Poppins({ weight: "400", subsets: ["latin"] });
 
-export default function PageName() {
+export default function APPageName() {
   return (
     <>
       <div
@@ -32,18 +42,31 @@ export default function PageName() {
       </div>
       <section
         id="admissionProcedureSection"
-        className={`bg-[#FDFBF0] py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px] ${font.className}`}
+        className={`overflow-hidden bg-[#FDFBF0] py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px] ${font.className}`}
       >
         <div className={` px-4 mx-auto `}>
           <div className="headingContainer flex flex-col justify-center items-center mb-6">
-            <div className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4">
+            <AnimatedDiv
+              className="text-2xl md:text-4xl text-start font-bold text-gray-900 mb-4"
+              variants={springAnimate70pxFromBelow10}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               Admission &nbsp;
               <span className="text-secondary-red1">Procedure</span>
-            </div>
+            </AnimatedDiv>
             <div className="w-[100px] border-b-[3px] border-red-500 mb-3"></div>
           </div>
           <div className="grid lg:grid-cols-4 gap-4">
-            <div className="admitCard admitCardParent">
+            <AnimatedDiv
+              className="admitCard admitCardParent"
+              // variants={springAnimate100perFromBelow10}
+              initial={{ opacity: 0, y: "200px" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, type: "tween" }}
+              viewport={{ once: true, amount: 0 }}
+            >
               <div className="flex justify-center items-center bg-transparent relative  mb-4">
                 <div
                   className="relative rounded-full  w-[105px] h-[105px] 
@@ -92,8 +115,14 @@ export default function PageName() {
                 Submit the online enquiry form or visit the school office. The
                 office staff will get back to you.
               </p>
-            </div>
-            <div className="admitCard admitCardParent">
+            </AnimatedDiv>
+            <AnimatedDiv
+              className="admitCard admitCardParent"
+              initial={{ opacity: 0, y: "200px" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, type: "tween", delay: 0.2 }}
+              viewport={{ once: true, amount: 0 }}
+            >
               <div className="flex justify-center items-center bg-transparent relative  mb-4">
                 <div
                   className="relative rounded-full  w-[105px] h-[105px] 
@@ -132,8 +161,14 @@ export default function PageName() {
                 Parents are requested to fill the registration form provided in
                 the office.
               </p>
-            </div>
-            <div className="admitCard admitCardParent">
+            </AnimatedDiv>
+            <AnimatedDiv
+              className="admitCard admitCardParent"
+              initial={{ opacity: 0, y: "200px" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, type: "tween", delay: 0.4 }}
+              viewport={{ once: true, amount: 0 }}
+            >
               <div className="flex justify-center items-center bg-transparent relative  mb-4">
                 <div
                   className="relative rounded-full  w-[105px] h-[105px] 
@@ -173,8 +208,14 @@ export default function PageName() {
                 admission for grade 1 and above. Eligible student will be given
                 seat and informed.
               </p>
-            </div>
-            <div className="admitCard admitCardParent">
+            </AnimatedDiv>
+            <AnimatedDiv
+              className="admitCard admitCardParent"
+              initial={{ opacity: 0, y: "200px" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, type: "tween", delay: 0.6 }}
+              viewport={{ once: true, amount: 0 }}
+            >
               <div className="flex justify-center items-center bg-transparent relative  mb-4">
                 <div
                   className="relative rounded-full  w-[105px] h-[105px] 
@@ -214,19 +255,45 @@ export default function PageName() {
                 admission. The filled application form along with the required
                 documents are to be submitted within 7 days.
               </p>
-            </div>
+            </AnimatedDiv>
           </div>
           <div className="border-b-gray-200 border-b-[1px] my-8"></div>
           <div className={`grid lg:grid-cols-2`}>
             <div className="left ">
               <div className="headingContainer mb-6">
-                <div className="text-[20px] lg:text-[25px] xl:text-[27px] text-start font-bold text-gray-800 mb-4">
+                <AnimatedDiv
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", delay: 0.2 }}
+                  viewport={{ amount: 0, once: true }}
+                  className="text-[20px] lg:text-[25px] xl:text-[27px] text-start font-bold text-gray-800 mb-4"
+                >
                   Documents Required for Admission:
-                </div>
+                </AnimatedDiv>
                 <div className="w-[100px] border-b-[3px] border-red-700 mb-3"></div>
               </div>
-
-              <div className=" flex gap-2 mb-3">
+              {docsRequired.map((item, i: number) => (
+                <AnimatedDiv
+                  key={i}
+                  className=" flex gap-2 mb-3"
+                  initial={{ opacity: 0, x: "20vw" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: i * 0.3,
+                    duration: 1,
+                    type: "tween",
+                  }}
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  <span>
+                    <FaRegHandPointRight className="text-red-700 text-[15px] mt-1" />
+                  </span>
+                  <span className={`text-gray-800 text-sm leading-6`}>
+                    {item}
+                  </span>
+                </AnimatedDiv>
+              ))}
+              {/* <div className=" flex gap-2 mb-3">
                 <span>
                   <FaRegHandPointRight className="text-red-700 text-[15px] mt-1" />
                 </span>
@@ -265,52 +332,94 @@ export default function PageName() {
                 <span className={`text-gray-800 text-sm leading-6`}>
                   Photocopy of previous year class report card.
                 </span>
-              </div>
+              </div> */}
             </div>
 
             <div className="right mt-4 lg:mt-0">
               <div className="headingContainer mb-6">
-                <div className="text-[20px] lg:text-[25px] xl:text-[27px]  text-start font-bold text-gray-800 mb-4">
+                <AnimatedDiv
+                  className="text-[20px] lg:text-[25px] xl:text-[27px]  text-start font-bold text-gray-800 mb-4"
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", delay: 0.2 }}
+                  viewport={{ amount: 0, once: true }}
+                >
                   Enquire Here
-                </div>
+                </AnimatedDiv>
                 <div className="w-[100px] border-b-[3px] border-red-700 "></div>
               </div>
               <form className="relative  w-full flex flex-col ">
                 <div className="gap-2 flex flex-col ">
-                  <input
-                    type="text"
-                    placeholder="Name "
-                    className="p-[15px] py-[25px] bg-white text-gray-600 font-medium placeholder-gray-500  font-sans text-[16px]  border-[1px] mb-4 h-[38px] 
+                  <AnimatedDiv
+                    className="w-full "
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0 }}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Name "
+                      className="w-full p-[15px] py-[25px] bg-white text-gray-600 font-medium placeholder-gray-500  font-sans text-[16px]  border-[1px] mb-4 h-[38px] 
                      focus:outline-none appearance-none border-solid focus:border-red-700 hover:border-red-700 transition    "
-                  />
-                  <input
-                    type="text"
-                    placeholder="Email "
-                    className="p-[15px] py-[25px] text-gray-600 font-medium placeholder-gray-500  font-sans text-[16px]  border-[1px] mb-4 h-[38px] focus:ring-0 focus:outline-none border-solid focus:border-red-700 hover:border-red-700 transition    "
-                  />
-                  <input
-                    type="text"
-                    placeholder="Phone Number"
-                    className="p-[15px] py-[25px] text-gray-600 font-medium placeholder-gray-500  font-sans text-[16px]  border-[1px] mb-4 h-[38px] focus:ring-0 focus:outline-none border-solid focus:border-red-700 hover:border-red-500 transition    "
-                  />
-
-                  <textarea
-                    placeholder="Message"
-                    cols={10}
-                    rows={4}
-                    className="p-[15px] py-[10px] text-gray-600 font-medium placeholder-gray-500 
+                    />
+                  </AnimatedDiv>
+                  {""}
+                  <AnimatedDiv
+                    className="w-full "
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0 }}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Email "
+                      className="w-full p-[15px] py-[25px] text-gray-600 font-medium placeholder-gray-500  font-sans text-[16px]  border-[1px] mb-4 h-[38px] focus:ring-0 focus:outline-none border-solid focus:border-red-700 hover:border-red-700 transition    "
+                    />
+                  </AnimatedDiv>
+                  <AnimatedDiv
+                    className="w-full "
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0 }}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Phone Number"
+                      className="w-full p-[15px] py-[25px] text-gray-600 font-medium placeholder-gray-500  font-sans text-[16px]  border-[1px] mb-4 h-[38px] focus:ring-0 focus:outline-none border-solid focus:border-red-700 hover:border-red-500 transition    "
+                    />
+                  </AnimatedDiv>
+                  <AnimatedDiv
+                    className="w-full "
+                    initial={{ opacity: 0, x: "20vw" }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, type: "tween" }}
+                    viewport={{ once: true, amount: 0 }}
+                  >
+                    <textarea
+                      placeholder="Message"
+                      cols={10}
+                      rows={4}
+                      className="w-full p-[15px] py-[10px] text-gray-600 font-medium placeholder-gray-500 
                    font-sans text-[16px]  
                     border-[1px] mb-4 h-[110px] focus:ring-0 focus:outline-none border-solid
                      focus:border-red-700 hover:border-red-700 transition "
-                  />
+                    />
+                  </AnimatedDiv>
 
                   <div className={`flex `}>
-                    <button
+                    <AnimatedButton
+                      initial={{ opacity: 0, x: "20vw" }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 1, type: "tween" }}
+                      viewport={{ once: true, amount: 0 }}
                       className="w-[160px] h-[52px] font-medium text-base font-sans rounded text-white bg-[#E92226] inline-block  hover:bg-black hover:text-white"
                       type="submit"
                     >
                       Send Message
-                    </button>
+                    </AnimatedButton>
                   </div>
                 </div>
               </form>
