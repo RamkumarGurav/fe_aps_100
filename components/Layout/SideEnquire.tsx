@@ -1,7 +1,5 @@
 "use client";
 
-import { Poppins } from "next/font/google";
-const font = Poppins({ weight: "400", subsets: ["latin"] });
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -134,9 +132,11 @@ export default function SideEnquire({
                   <Input
                     type="text"
                     placeholder="Name*"
-                    size="sm"
-                    className="!rounded !font-medium !text-[13px]"
-                    // focusBorderColor="gray.500"
+                    size="md"
+                    className="!rounded !font-medium !text-[13px]  "
+                    borderColor="yellow.800"
+                    // _hover={{ borderColor: "blue.800" }}
+                    // focusBorderColor="gray.800"
                     errorBorderColor="red.300"
                     _placeholder={{ color: "gray.900" }}
                     {...register("name", {
@@ -165,8 +165,9 @@ export default function SideEnquire({
                   <Input
                     type="email"
                     placeholder="Email*"
-                    size="sm"
+                    size="md"
                     className="!rounded !font-medium !text-[13px]"
+                    borderColor="yellow.800"
                     // focusBorderColor="gray.500"
                     errorBorderColor="red.300"
                     _placeholder={{ color: "gray.900" }}
@@ -201,8 +202,9 @@ export default function SideEnquire({
                   <Input
                     type="tel"
                     placeholder="Contact Number*"
-                    size="sm"
+                    size="md"
                     className="!rounded !font-medium !text-[13px]"
+                    borderColor="yellow.800"
                     // focusBorderColor="gray.500"
                     errorBorderColor="red.300"
                     _placeholder={{ color: "gray.900" }}
@@ -233,8 +235,9 @@ export default function SideEnquire({
                   <Textarea
                     rows={4}
                     placeholder="Message*"
-                    size="sm"
+                    size="md"
                     className="!rounded !font-medium !text-[13px]"
+                    borderColor="yellow.800"
                     // focusBorderColor="gray.500"
                     errorBorderColor="red.300"
                     _placeholder={{ color: "gray.900" }}
@@ -281,7 +284,6 @@ export default function SideEnquire({
                   loadingText="sending.."
                   // isDisabled={!isDirty || !isValid}
                 >
-                  {" "}
                   Send{" "}
                 </LoaderButtonChakra>{" "}
               </motion.div>{" "}
