@@ -8,9 +8,9 @@ import NavLinks from "./NavLinks";
 import Link from "next/link";
 import HeaderTop from "./HeaderTop";
 import DropDown from "./DropDown";
-import { Lato } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
-const font = Lato({ weight: "400", subsets: ["latin"] });
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 
 export default function Navbar({
   navLinks,

@@ -5,6 +5,7 @@ import MovingMessage from "@/components/MovingMessage/MovingMessage";
 import GalleryCard from "../../../../components/Gallery/GalleryCard";
 import { Mulish } from "next/font/google";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 const font = Mulish({ weight: "400", subsets: ["latin"] });
 
@@ -50,22 +51,7 @@ export default async function Gallery({
 
   return (
     <div className="w-[100%] overflow-hidden">
-      <div
-        className={`gallery-banner flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          Gallery
-        </h1>
-
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">Gallery</span>
-        </div>
-      </div>
+      <Bedcrumb heading="Gallery" pageName1={`Gallery`} />
 
       <section id="albums" className="albumsShell py-20 px-2 sm:px-12 ">
         <AnimatedDiv

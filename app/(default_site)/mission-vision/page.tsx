@@ -14,6 +14,7 @@ import {
 } from "@/utils/variants";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 import { missionStatements, visionStatement } from "@/utils/displayData";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 const font = Poppins({ weight: "400", subsets: ["latin"] });
 export default function MVPageName() {
@@ -21,24 +22,8 @@ export default function MVPageName() {
     <div
       className={`${font.className} bg-yellow-muted relative z-[1] overflow-hidden`}
     >
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          About Us
-        </h1>
+      <Bedcrumb heading="About Us" pageName1="Our Vision/Mission" />
 
-        <div className="flex justify-center items-center mt-2 ">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">
-            Our Vision/Mission
-          </span>
-        </div>
-      </div>
       <AnimatedDiv
         id="missionVisionSection "
         className={` py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px] overflow-hidden`}

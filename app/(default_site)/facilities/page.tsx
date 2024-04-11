@@ -1,7 +1,8 @@
 "use client";
-import { Poppins } from "next/font/google";
-const font = Poppins({ weight: "400", subsets: ["latin"] });
+import { Open_Sans } from "next/font/google";
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 import Link from "next/link";
+import { Suspense, useState } from "react";
 import styles from "./styles.module.css";
 import InfraGalleryModalContainer from "./InfraGalleryModalContainer";
 import KCModalContainer from "./KCModalContainer";
@@ -11,13 +12,14 @@ import SportsModalContainer from "./SportsModalContainer";
 
 // In your component where you have the Link tag
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import {
   springAnimate300pxFromBelow10,
   springAnimate70pxFromBelow16,
 } from "@/utils/variants";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
+import Loading from "./Loading";
 
 const boxVariant = {
   hidden: {
@@ -49,22 +51,18 @@ const listVariant = {
   },
 };
 export default function FPageName() {
-  const NAVBAR_HEIGHT = 280; // Adjust this value according to your actual navbar height
-
-  const pathname = usePathname();
-  const params = useSearchParams();
+  const NAVBAR_HEIGHT = 80; // Adjust this value according to your actual navbar height
+  const [id, setId] = useState("");
 
   useEffect(() => {
-    console.log(params);
-    const hash = pathname.split("#")[1]; // Get the section id from the URL hash
-    const section = document.getElementById(hash); // Find the section element by id
+    const section = document.getElementById(id); // Find the section element by id
     if (section) {
       const offsetTop = section.offsetTop - NAVBAR_HEIGHT; // Adjusted offset top considering navbar height
       window.scrollTo({ top: offsetTop, behavior: "smooth" }); // Scroll to the adjusted position
     }
-  }, [pathname, params]);
+  }, [id]);
   return (
-    <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
+    <div className={`  bg-[#FDFBF0] overflow-hidden`}>
       <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
@@ -109,8 +107,9 @@ export default function FPageName() {
                 variants={listVariant}
                 viewport={{ once: true, amount: 0 }}
               >
-                <Link
-                  href={"#infrastuctureSection"}
+                <div
+                  // href={"#infrastuctureSection"}
+                  onClick={() => setId("infrastuctureSection")}
                   className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
                   <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -143,14 +142,15 @@ export default function FPageName() {
                   >
                     Infrastructure
                   </h4>
-                </Link>
+                </div>
               </AnimatedDiv>
               <AnimatedDiv
                 variants={listVariant}
                 viewport={{ once: true, amount: 0 }}
               >
-                <Link
-                  href={"#knowledgeCenterSection"}
+                <div
+                  // href={"#knowledgeCenterSection"}
+                  onClick={() => setId("knowledgeCenterSection")}
                   className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
                   <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -183,15 +183,16 @@ export default function FPageName() {
                   >
                     Knowledge centre
                   </h4>
-                </Link>
+                </div>
               </AnimatedDiv>
 
               <AnimatedDiv
                 variants={listVariant}
                 viewport={{ once: true, amount: 0 }}
               >
-                <Link
-                  href={"#scienceLabSection"}
+                <div
+                  // href={"#scienceLabSection"}
+                  onClick={() => setId("scienceLabSection")}
                   className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
                   <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -224,15 +225,15 @@ export default function FPageName() {
                   >
                     Science Lab
                   </h4>
-                </Link>
+                </div>
               </AnimatedDiv>
 
               <AnimatedDiv
                 variants={listVariant}
                 viewport={{ once: true, amount: 0 }}
               >
-                <Link
-                  href={"#"}
+                <div
+                  // href={"#"}
                   className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
                   <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -265,15 +266,16 @@ export default function FPageName() {
                   >
                     Computer Lab
                   </h4>
-                </Link>
+                </div>
               </AnimatedDiv>
 
               <AnimatedDiv
                 variants={listVariant}
                 viewport={{ once: true, amount: 0 }}
               >
-                <Link
-                  href={"#sportsSection"}
+                <div
+                  // href={"#sportsSection"}
+                  onClick={() => setId("sportsSection")}
                   className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
                   <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -306,15 +308,16 @@ export default function FPageName() {
                   >
                     Sports
                   </h4>
-                </Link>
+                </div>
               </AnimatedDiv>
 
               <AnimatedDiv
                 variants={listVariant}
                 viewport={{ once: true, amount: 0 }}
               >
-                <Link
-                  href={"#transportSection"}
+                <div
+                  // href={"#transportSection"}
+                  onClick={() => setId("transportSection")}
                   className={`${styles.facilitiesCard} ${styles.facilitiesCardParent}`}
                 >
                   <div className="flex justify-center items-center bg-transparent relative  mb-4">
@@ -347,7 +350,7 @@ export default function FPageName() {
                   >
                     Transport
                   </h4>
-                </Link>
+                </div>
               </AnimatedDiv>
             </AnimatedDiv>
           </div>

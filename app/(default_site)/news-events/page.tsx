@@ -1,31 +1,17 @@
 import Image from "next/image";
-import { Poppins } from "next/font/google";
-const font = Poppins({ weight: "400", subsets: ["latin"] });
+import { Open_Sans } from "next/font/google";
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 import Link from "next/link";
 import { eventsDetails } from "@/utils/displayData";
 import { springAnimate70pxFromBelow10 } from "@/utils/variants";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import AnimatedTd from "@/components/reusable/animated-elements/AnimatedTd";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 export default function NEPageName() {
   return (
     <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white `}>News and Events</h1>
-
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">
-            News and Events
-          </span>
-        </div>
-      </div>
+      <Bedcrumb heading="News and Events" pageName1="News and Events" />
 
       <section
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]   `}
@@ -539,6 +525,7 @@ export default function NEPageName() {
                             <p>TERM-II</p>
                           </AnimatedTd>
                         </tr>
+                        {/* //{---------------TERM2-------------- */}
                         <tr
                           className={`border-b  bg-gray-50
                                border-neutral-200 `}

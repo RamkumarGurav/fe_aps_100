@@ -39,7 +39,7 @@ export default function Carousel({
   const [currentSlideIndex, setCurrentSlideIndex] = useState(currentIndex);
   const totalSlidesNum = 22;
 
-  console.log(currentIndex ?? currentIndex);
+  // console.log(currentIndex ?? currentIndex);
 
   const handleNext = useCallback(
     () =>
@@ -82,6 +82,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -90,6 +91,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -98,6 +100,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -106,6 +109,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -114,6 +118,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -122,6 +127,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -130,6 +136,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -138,6 +145,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -146,6 +154,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -154,6 +163,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -162,6 +172,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -170,6 +181,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -178,6 +190,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -186,6 +199,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -194,6 +208,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -202,6 +217,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -210,6 +226,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -218,6 +235,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -226,6 +244,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -234,6 +253,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -242,6 +262,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
           <Image
@@ -250,6 +271,7 @@ export default function Carousel({
             width={700}
             height={500}
             className="min-w-full md:w-[650px] h-[250px] sm:h-[400px] object-contain"
+            priority={true}
             placeholder="blur"
           />
         </div>

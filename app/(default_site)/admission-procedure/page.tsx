@@ -17,29 +17,14 @@ import {
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import { docsRequired } from "@/utils/displayData";
 import AnimatedButton from "@/components/reusable/animated-elements/AnimatedButton";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 const font = Poppins({ weight: "400", subsets: ["latin"] });
 
 export default function APPageName() {
   return (
     <>
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          About Us
-        </h1>
+      <Bedcrumb heading="About Us" pageName1="Admission Procedure" />
 
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">
-            Admission Procedure
-          </span>
-        </div>
-      </div>
       <section
         id="admissionProcedureSection"
         className={`overflow-hidden bg-[#FDFBF0] py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px] ${font.className}`}

@@ -12,26 +12,12 @@ import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import { springAnimate70pxFromBelow10 } from "@/utils/variants";
 import AnimatedTh from "@/components/reusable/animated-elements/AnimatedTh";
 import AnimatedTd from "@/components/reusable/animated-elements/AnimatedTd";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 export default function PageName() {
   return (
     <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white `}>School Timings</h1>
-
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">
-            School Timings
-          </span>
-        </div>
-      </div>
+      <Bedcrumb heading="Academics" pageName1="Academic Calender" />
 
       <section
         className={` py-[35px] sm:py-[50px] sm:px-[35px] xl:px-[70px]   `}

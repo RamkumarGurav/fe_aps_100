@@ -11,26 +11,13 @@ import {
   tweenAnimateFromRight10,
 } from "@/utils/variants";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 export default function CPageName() {
   return (
-    <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          Academics
-        </h1>
+    <div className={`  bg-[#FDFBF0] overflow-hidden`}>
+      <Bedcrumb heading="Academics" pageName1="Curriculum" />
 
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">Curriculum</span>
-        </div>
-      </div>
       <section
         id="curriculumSection"
         className="py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]  "
@@ -58,8 +45,7 @@ export default function CPageName() {
                       initial={{ opacity: 0, x: "20vw" }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{
-                        delay: i * 0.1,
-                        duration: 1,
+                        duration: i * 0.1 + 1,
                         type: "tween",
                       }}
                       viewport={{ once: true, amount: 0.2 }}
@@ -84,14 +70,13 @@ export default function CPageName() {
                   </p>
                 </AnimatedDiv>
                 {curriculumDetails.curriculumData.list2.map(
-                  (item: string, i: number) => (
+                  (item: string, j: number) => (
                     <AnimatedDiv
-                      key={i}
+                      key={j}
                       initial={{ opacity: 0, x: "20vw" }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{
-                        delay: i * 0.1,
-                        duration: 1,
+                        duration: j * 0.1 + 1,
                         type: "tween",
                       }}
                       viewport={{ once: true, amount: 0 }}
@@ -160,12 +145,11 @@ export default function CPageName() {
                     <div className="w-[100px] border-b-[3px] border-red-700 mb-4"></div>
                     {item.list1.map((sub: string, j: number) => (
                       <AnimatedDiv
-                        key={i}
+                        key={j}
                         initial={{ opacity: 0, x: "20vw" }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{
-                          delay: i * 0.1,
-                          duration: 1,
+                          duration: j * 0.1 + 1,
                           type: "tween",
                         }}
                         viewport={{ once: true, amount: 0 }}
@@ -218,8 +202,7 @@ export default function CPageName() {
                   initial={{ opacity: 0, x: "20vw" }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{
-                    delay: i * 0.1,
-                    duration: 1,
+                    duration: i * 0.1 + 1,
                     type: "tween",
                   }}
                   viewport={{ once: true, amount: 0 }}
@@ -256,8 +239,7 @@ export default function CPageName() {
                   initial={{ opacity: 0, x: "20vw" }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{
-                    delay: i * 0.1,
-                    duration: 1,
+                    duration: i * 0.1 + 1,
                     type: "tween",
                   }}
                   viewport={{ once: true, amount: 0 }}

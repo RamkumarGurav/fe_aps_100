@@ -1,7 +1,8 @@
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import { Lato } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
-const font = Lato({ weight: "400", subsets: ["latin"] });
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 export default function RootLayout({
   children,
 }: {
@@ -13,6 +14,7 @@ export default function RootLayout({
         id="body"
         className={`${font.className} max-w-[1536px] mx-auto bg-gray-400`}
       >
+        <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
         {children}
         <div id="galleryModal"></div>
       </body>

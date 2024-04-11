@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Lato } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import AbouApsImg from "../../../public/abt-img.jpg";
 import Image from "next/image";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
@@ -11,26 +11,13 @@ import {
   tweenAnimateFromRight10,
 } from "@/utils/variants";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
-const font = Lato({ weight: "400", subsets: ["latin"] });
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 export default function AUPageName() {
   return (
     <div className={`${font.className}  relative z-[1] overflow-hidden`}>
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          Contact Us
-        </h1>
+      <Bedcrumb heading="Contact Us" pageName1="Contact Us" />
 
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">Contact Us</span>
-        </div>
-      </div>
       <section
         id="contactUsSection "
         className={`contactUsSection py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px] overflow-hidden`}

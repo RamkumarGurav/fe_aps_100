@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Lato } from "next/font/google";
-const font = Lato({ weight: "400", subsets: ["latin"] });
+import { Open_Sans } from "next/font/google";
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 import rajab from "@/public/rajab.jpg";
 import Link from "next/link";
 import {
@@ -14,28 +14,13 @@ import {
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
 import AnimatedTitle from "@/components/reusable/animated-elements/AnimatedDiv";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 export default function CHMPageName() {
   return (
-    <div className="bg-[#FDFBF0] overflow-hidden">
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          Messages
-        </h1>
+    <div className={`bg-[#FDFBF0] overflow-hidden ${font.className}`}>
+      <Bedcrumb heading="Messages" pageName1="Chairperson Message" />
 
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">
-            Chairperson Message
-          </span>
-        </div>
-      </div>
       <section
         id="chairpersonMsg"
         className="py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]  "

@@ -11,28 +11,12 @@ import {
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
 import { springAnimate70pxFromBelow10 } from "@/utils/variants";
 import AnimatedText from "@/components/reusable/animated-elements/AnimatedText";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 export default function CCAPageName() {
   return (
     <div className={`${font.className}  bg-[#FDFBF0] overflow-hidden`}>
-      <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]   sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          Academics
-        </h1>
-
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">
-            Co-Curricular Activities
-          </span>
-        </div>
-      </div>
+      <Bedcrumb heading="Academics" pageName1="Co-Curricular Activities" />
       <section className="py-[35px] sm:py-[50px] md:px-[35px] xl:px-[70px]  ">
         <div className="px-4 ">
           <div className="mx-auto ">

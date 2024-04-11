@@ -8,6 +8,7 @@ import VideoCard from "../../../../components/GalleryDetails/VideoCard";
 import { Mulish } from "next/font/google";
 import MovingMessage from "@/components/MovingMessage/MovingMessage";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
+import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 const font = Mulish({ weight: "400", subsets: ["latin"] });
 
@@ -52,7 +53,8 @@ export default async function Gallery({
 
   return (
     <div className="w-[100%] overflow-hidden">
-      <div
+      <Bedcrumb heading="Gallery" pageName1={`Gallery - ${albumData.name}`} />
+      {/* <div
         className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
         style={{ backgroundImage: "url('../../inner2.jpg')" }}
       >
@@ -73,7 +75,7 @@ export default async function Gallery({
             {albumData.name}
           </span>
         </div>
-      </div>
+      </div> */}
 
       <section id="albums" className="albumsShell py-20 px-2 sm:px-12 ">
         <AnimatedDiv

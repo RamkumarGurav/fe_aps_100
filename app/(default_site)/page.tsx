@@ -1,6 +1,6 @@
 "use client";
-import { Lato } from "next/font/google";
-const font = Lato({ weight: "400", subsets: ["latin"] });
+import { Open_Sans } from "next/font/google";
+const font = Open_Sans({ weight: "400", subsets: ["latin"] });
 import Image from "next/image";
 import AbouApsImg from "../../public/abt-img.jpg";
 import rajab from "../../public/rajab.jpg";
