@@ -88,7 +88,7 @@ export default async function Gallery({
                 >
                   <GalleryModalContainer
                     data={albumsBlurDataUrl}
-                    srcUrl={`${beBaseUrl}uploads/album/${yearData.fiscal_year}/album_images/${item.album_image}`}
+                    srcUrl={`${process.env.NEXT_PUBLIC_BE_BASE_URL}uploads/album/${yearData.fiscal_year}/album_images/${item.album_image}`}
                     blurUrl={item.blurDataUrl}
                     keyIndex={i}
                   />
