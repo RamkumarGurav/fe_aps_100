@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getImagesWithSrcAndBlurDataUrlArr } from "@/utils/base64Converters";
-import MovingMessage from "@/components/MovingMessage/MovingMessage";
 import GalleryCard from "../../../../components/Gallery/GalleryCard";
 import { Mulish } from "next/font/google";
 import AnimatedDiv from "@/components/reusable/animated-elements/AnimatedDiv";
@@ -9,11 +7,13 @@ import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 const font = Mulish({ weight: "400", subsets: ["latin"] });
 
-const beBaseUrl = "http://localhost/xampp/MARS/appolopublicschool.com/";
-const feBaseUrl = "http://localhost:3000/";
+// const beBaseUrl = "http://localhost/xampp/MARS/rest_ci_api_100/";
+// const feBaseUrl = "http://localhost:3001/";
 
-async function fetchData(id: string | number) {
-  const res = await fetch(`${beBaseUrl}api/albums.php?fyID=${id}`);
+async function fetchData(fy: string | number) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BE_BASE_URL}api/albums?fy=${fy}`
+  );
 
   if (!res.ok) return null;
   return res.json();
@@ -29,8 +29,8 @@ export default async function Gallery({
     return notFound();
   }
   const data = await fetchData(year);
-  const albumsData = data.albums;
-  const yearData = data.year;
+  const albumsData = data.data;
+  const yearData = data.yearData;
 
   // console.log(data);
 
@@ -39,7 +39,7 @@ export default async function Gallery({
   }
   let albumCoverImages = albumsData.map((item: { [key: string]: any }) => ({
     ...item,
-    imageUrl: `${beBaseUrl}uploads/album/${yearData.fiscal_year}/cover_images/${item.cover_image}`,
+    imageUrl: `${process.env.NEXT_PUBLIC_BE_BASE_URL}uploads/album/${yearData.fiscal_year}/cover_images/${item.cover_image}`,
   }));
   // console.log(albumCoverImages);
 
@@ -75,7 +75,7 @@ export default async function Gallery({
                 i={i}
                 id={item.id}
                 name={item.name}
-                srcUrl={`${beBaseUrl}uploads/album/${yearData.fiscal_year}/cover_images/${item.cover_image}`}
+                srcUrl={`${process.env.NEXT_PUBLIC_BE_BASE_URL}uploads/album/${yearData.fiscal_year}/cover_images/${item.cover_image}`}
                 blurDataUrl={item.blurDataUrl}
               />
             )

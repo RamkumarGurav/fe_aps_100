@@ -53,7 +53,7 @@ export default function SideEnquire({
       const responseKey = await recaptchaRef.current?.executeAsync();
       recaptchaRef.current?.reset();
       if (responseKey) {
-        data.subject = "Regarding Contact message";
+        data.subject = "contact message";
         data.responseKey = responseKey;
         const response = await sendData(data);
         if (response.success) {

@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getImagesWithSrcAndBlurDataUrlArr } from "@/utils/base64Converters";
-import Image from "next/image";
 import GalleryModalContainer from "../../../../components/GalleryDetails/GalleryModalContainer";
 import VideoCard from "../../../../components/GalleryDetails/VideoCard";
 
@@ -12,29 +10,40 @@ import Bedcrumb from "@/components/Bedcrumb/Bedcrum";
 
 const font = Mulish({ weight: "400", subsets: ["latin"] });
 
-const beBaseUrl = "http://localhost/xampp/MARS/appolopublicschool.com/";
+const beBaseUrl = "http://localhost/xampp/MARS/rest_ci_api_100/";
+const feBaseUrl = "http://localhost:3001/";
 
-async function fetchData(id: string | number) {
-  const res = await fetch(`${beBaseUrl}api/album_images.php?albumID=${id}`);
+async function fetchData(id: number) {
+  // console.log(
+  //   `${process.env.NEXT_PUBLIC_BE_BASE_URL}api/album-images?albumID=${id}`
+  // );
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BE_BASE_URL}api/album-images?albumID=${id}`,
+    { cache: "no-cache" }
+  );
 
-  if (!res.ok) return null;
+  // if (!res.ok) return null;
   return res.json();
 }
 
 export default async function Gallery({
   params,
 }: {
-  params: { albumId: string | number };
+  params: { albumId: string };
 }) {
-  const albumId = decodeURI(String(params.albumId));
-  const data = await fetchData(albumId);
-  const albumsImagesData = data.albumImages;
-  const albumData = data.album;
-  const yearData = data.year;
-
-  if (!data || data.albumImages == false) {
+  // const albumId = decodeURI(String(params.albumId));
+  const data = await fetchData(Number(params.albumId));
+  if (data.status == false) {
     notFound();
   }
+  const albumsImagesData = data.data;
+  const albumData = data.albumData;
+  const yearData = data.yearData;
+  // console.log("albumsImagesData:=", albumsImagesData);
+  // console.log("albumData:=", albumData);
+  // console.log("yearData:=", yearData);
+  // console.log("dataa::::", data);
+
   let filterImages = albumsImagesData
     .slice()
     .filter((item: { [key: string]: any }) => item.type == "1");
@@ -45,37 +54,15 @@ export default async function Gallery({
   // console.log(filteredVideos);
   let albumImages = filterImages.map((item: { [key: string]: any }) => ({
     ...item,
-    imageUrl: `${beBaseUrl}uploads/album/${yearData.fiscal_year}/album_images/${item.album_image}`,
+    imageUrl: `${process.env.NEXT_PUBLIC_BE_BASE_URL}uploads/album/${yearData.fiscal_year}/album_images/${item.album_image}`,
   }));
 
   let albumsBlurDataUrl = await getImagesWithSrcAndBlurDataUrlArr(albumImages);
-  // console.log(albumsBlurDataUrl)
+  // console.log(albumsBlurDataUrl);
 
   return (
     <div className="w-[100%] overflow-hidden">
       <Bedcrumb heading="Gallery" pageName1={`Gallery - ${albumData.name}`} />
-      {/* <div
-        className={`bedcrumb flex flex-col justify-center items-center h-[140px]  ${font.className} sm:h-[170px] bg-cover`}
-        style={{ backgroundImage: "url('../../inner2.jpg')" }}
-      >
-        <h1 className={`text-2xl sm:text-4xl text-white text-center`}>
-          Gallery
-        </h1>
-
-        <div className="flex justify-center items-center mt-2">
-          <Link href="/" className={`text-xs  text-[#EF4438] font-bold `}>
-            Home
-          </Link>
-          <span className="text-white text-xs">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          <span className="font-medium text-white text-xs ">Gallery</span>
-          <span className="text-white text-xs">
-            &nbsp;&nbsp;-&nbsp;&nbsp;
-          </span>{" "}
-          <span className="font-medium text-white text-xs ">
-            {albumData.name}
-          </span>
-        </div>
-      </div> */}
 
       <section id="albums" className="albumsShell py-20 px-2 sm:px-12 ">
         <AnimatedDiv
